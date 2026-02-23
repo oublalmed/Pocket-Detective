@@ -1,0 +1,821 @@
+# POCKET DETECTIVE — Data-Driven Case Format
+
+**Version:** 1.0
+**Date:** 2026-02-23
+
+---
+
+## 1. CASE JSON SCHEMA OVERVIEW
+
+Every case is a single `case.json` file containing ALL data needed to play the case. The engine reads this file and dynamically generates all UI, dialogue, evidence, and logic.
+
+### 1.1 Top-Level Structure
+
+```json
+{
+  "meta": { },
+  "suspects": [ ],
+  "victim": { },
+  "evidence": {
+    "messages": [ ],
+    "photos": [ ],
+    "calls": [ ],
+    "gps_logs": [ ],
+    "documents": [ ]
+  },
+  "clues": [ ],
+  "connections": [ ],
+  "interrogations": { },
+  "notifications": [ ],
+  "accusation": { },
+  "resolution": { },
+  "hints": { }
+}
+```
+
+---
+
+## 2. META SECTION
+
+```json
+{
+  "meta": {
+    "case_id": "case_001",
+    "title": "The Silent Witness",
+    "subtitle": "A photographer's last night",
+    "description": "Renowned photographer Julien Moreau is found dead in his studio. His phone holds the answers.",
+    "difficulty": "easy",
+    "order": 1,
+    "estimated_time_minutes": 25,
+    "stars_config": {
+      "three_star": { "max_hints": 0, "all_evidence": true },
+      "two_star": { "max_hints": 2 },
+      "one_star": { "max_hints": 999 }
+    },
+    "tags": ["murder", "photography", "jealousy"],
+    "language": "en",
+    "version": "1.0",
+    "author": "Studio"
+  }
+}
+```
+
+| Field | Type | Description |
+|---|---|---|
+| `case_id` | string | Unique identifier |
+| `title` | string | Display title |
+| `subtitle` | string | Short tagline |
+| `description` | string | Brief synopsis shown in case selection |
+| `difficulty` | enum | `tutorial`, `easy`, `medium`, `hard`, `expert` |
+| `order` | int | Display & unlock order |
+| `estimated_time_minutes` | int | Expected play time |
+| `stars_config` | object | Conditions for 1/2/3 star rating |
+| `tags` | array | Content tags for filtering |
+
+---
+
+## 3. SUSPECTS
+
+```json
+{
+  "suspects": [
+    {
+      "id": "suspect_sophie",
+      "name": "Sophie Martin",
+      "age": 28,
+      "occupation": "Gallery Owner",
+      "relationship_to_victim": "Ex-girlfriend",
+      "bio": "Sophie and Julien dated for 2 years. She now runs the gallery that shows his work.",
+      "portraits": {
+        "calm": "sophie_calm.png",
+        "nervous": "sophie_nervous.png",
+        "angry": "sophie_angry.png",
+        "defensive": "sophie_defensive.png",
+        "broken": "sophie_broken.png"
+      },
+      "contact_info": {
+        "phone": "+33 6 12 34 56 78",
+        "email": "sophie@galeriemoderne.fr"
+      },
+      "is_culprit": false
+    },
+    {
+      "id": "suspect_marc",
+      "name": "Marc Duval",
+      "age": 35,
+      "occupation": "Business Partner",
+      "relationship_to_victim": "Business partner and childhood friend",
+      "bio": "Marc and Julien co-owned the studio. Recently, financial tensions emerged.",
+      "portraits": {
+        "calm": "marc_calm.png",
+        "nervous": "marc_nervous.png",
+        "angry": "marc_angry.png",
+        "defensive": "marc_defensive.png",
+        "broken": "marc_broken.png"
+      },
+      "contact_info": {
+        "phone": "+33 6 98 76 54 32",
+        "email": "marc.duval@studio.fr"
+      },
+      "is_culprit": true
+    }
+  ]
+}
+```
+
+---
+
+## 4. VICTIM
+
+```json
+{
+  "victim": {
+    "id": "victim_julien",
+    "name": "Julien Moreau",
+    "age": 33,
+    "occupation": "Photographer",
+    "bio": "Award-winning photographer known for his urban portraits. Found dead in his studio.",
+    "portrait": "julien_portrait.png",
+    "contact_info": {
+      "phone": "+33 6 55 44 33 22",
+      "email": "julien@moreau-photo.fr"
+    }
+  }
+}
+```
+
+---
+
+## 5. EVIDENCE
+
+### 5.1 Messages
+
+```json
+{
+  "evidence": {
+    "messages": [
+      {
+        "thread_id": "thread_001",
+        "participants": ["victim_julien", "suspect_sophie"],
+        "display_name": "Sophie Martin",
+        "preview": "I didn't see him after...",
+        "unread": true,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_001",
+            "sender": "victim_julien",
+            "text": "Hey, are you coming to the studio tonight?",
+            "timestamp": "2026-03-12T21:30:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_002",
+            "sender": "suspect_sophie",
+            "text": "I'll be there at 22:00",
+            "timestamp": "2026-03-12T21:32:00",
+            "clue_id": "clue_time_contradiction",
+            "clue_highlight": "22:00"
+          },
+          {
+            "id": "msg_003",
+            "sender": "victim_julien",
+            "text": "Great, Marc is leaving at 21:00 so we'll have the place to ourselves",
+            "timestamp": "2026-03-12T21:33:00",
+            "clue_id": "clue_marc_schedule",
+            "clue_highlight": "Marc is leaving at 21:00"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### 5.2 Photos
+
+```json
+{
+  "photos": [
+    {
+      "id": "photo_001",
+      "filename": "studio_exterior.png",
+      "caption": "Studio exterior — security camera",
+      "timestamp": "2026-03-12T21:45:00",
+      "location": "12 Rue de Rivoli, Paris",
+      "unlock_condition": null,
+      "hotspots": [
+        {
+          "id": "hotspot_001",
+          "x_percent": 65,
+          "y_percent": 30,
+          "width_percent": 15,
+          "height_percent": 20,
+          "clue_id": "clue_marc_car",
+          "description": "Marc's car is still parked outside at 21:45 — he said he left at 21:00"
+        }
+      ]
+    },
+    {
+      "id": "photo_002",
+      "filename": "studio_desk.png",
+      "caption": "Julien's desk",
+      "timestamp": "2026-03-13T08:00:00",
+      "location": "Studio Interior",
+      "unlock_condition": "clue_marc_schedule",
+      "hotspots": [
+        {
+          "id": "hotspot_002",
+          "x_percent": 20,
+          "y_percent": 70,
+          "width_percent": 25,
+          "height_percent": 15,
+          "clue_id": "clue_insurance_doc",
+          "description": "A life insurance document with Marc listed as beneficiary"
+        }
+      ]
+    }
+  ]
+}
+```
+
+### 5.3 Calls
+
+```json
+{
+  "calls": [
+    {
+      "id": "call_001",
+      "caller": "suspect_marc",
+      "receiver": "victim_julien",
+      "timestamp": "2026-03-12T20:15:00",
+      "duration_seconds": 180,
+      "type": "incoming",
+      "transcript": [
+        { "speaker": "Marc", "text": "Julien, I need to talk to you about the accounts." },
+        { "speaker": "Julien", "text": "Not now, Marc. Come by the studio later." },
+        { "speaker": "Marc", "text": "Fine. I'll come by around 20:30.", "clue_id": "clue_marc_visit_time" }
+      ],
+      "unlock_condition": null
+    }
+  ]
+}
+```
+
+### 5.4 GPS Logs
+
+```json
+{
+  "gps_logs": [
+    {
+      "id": "gps_001",
+      "device_owner": "suspect_sophie",
+      "entries": [
+        { "timestamp": "2026-03-12T21:00:00", "location": "15 Rue Marbeuf", "label": "Sophie's Apartment" },
+        { "timestamp": "2026-03-12T21:30:00", "location": "Café Luna, St-Germain", "label": "Café Luna", "clue_id": "clue_sophie_alibi" },
+        { "timestamp": "2026-03-12T22:15:00", "location": "12 Rue de Rivoli", "label": "Studio" }
+      ]
+    },
+    {
+      "id": "gps_002",
+      "device_owner": "suspect_marc",
+      "entries": [
+        { "timestamp": "2026-03-12T20:30:00", "location": "12 Rue de Rivoli", "label": "Studio" },
+        { "timestamp": "2026-03-12T22:00:00", "location": "12 Rue de Rivoli", "label": "Studio", "clue_id": "clue_marc_still_there" },
+        { "timestamp": "2026-03-12T22:30:00", "location": "8 Avenue Montaigne", "label": "Marc's Apartment" }
+      ]
+    }
+  ]
+}
+```
+
+### 5.5 Documents
+
+```json
+{
+  "documents": [
+    {
+      "id": "doc_001",
+      "title": "Life Insurance Policy",
+      "type": "pdf_preview",
+      "filename": "insurance_doc.png",
+      "content_summary": "Life insurance policy for Julien Moreau. Beneficiary: Marc Duval. Amount: €500,000.",
+      "unlock_condition": "clue_insurance_doc",
+      "clue_id": "clue_insurance_motive"
+    }
+  ]
+}
+```
+
+---
+
+## 6. CLUES
+
+```json
+{
+  "clues": [
+    {
+      "id": "clue_time_contradiction",
+      "title": "Time Contradiction",
+      "description": "Sophie said she'd arrive at 22:00, but GPS shows she was at Café Luna at 21:30",
+      "type": "contradiction",
+      "source": "messages",
+      "importance": "key",
+      "icon": "clock"
+    },
+    {
+      "id": "clue_marc_schedule",
+      "title": "Marc's Schedule",
+      "description": "Julien said Marc was leaving at 21:00",
+      "type": "timeline",
+      "source": "messages",
+      "importance": "key",
+      "icon": "calendar"
+    },
+    {
+      "id": "clue_marc_car",
+      "title": "Marc's Car",
+      "description": "Marc's car still parked at 21:45 — he claimed he left at 21:00",
+      "type": "contradiction",
+      "source": "photos",
+      "importance": "key",
+      "icon": "car"
+    },
+    {
+      "id": "clue_sophie_alibi",
+      "title": "Sophie's Alibi",
+      "description": "GPS confirms Sophie was at Café Luna at 21:30, not at the studio",
+      "type": "alibi",
+      "source": "gps",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_marc_still_there",
+      "title": "Marc at Studio Late",
+      "description": "Marc's GPS shows he was still at the studio at 22:00",
+      "type": "presence",
+      "source": "gps",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_insurance_doc",
+      "title": "Insurance Document",
+      "description": "A life insurance document found on Julien's desk",
+      "type": "document",
+      "source": "photos",
+      "importance": "supporting",
+      "icon": "document"
+    },
+    {
+      "id": "clue_insurance_motive",
+      "title": "Insurance Motive",
+      "description": "Marc is the sole beneficiary of Julien's €500,000 life insurance",
+      "type": "motive",
+      "source": "documents",
+      "importance": "key",
+      "icon": "money"
+    },
+    {
+      "id": "clue_marc_visit_time",
+      "title": "Marc's Visit",
+      "description": "Marc told Julien he'd come by the studio around 20:30",
+      "type": "timeline",
+      "source": "calls",
+      "importance": "supporting",
+      "icon": "phone"
+    }
+  ]
+}
+```
+
+---
+
+## 7. CONNECTIONS
+
+Connections define valid links between clues on the evidence board.
+
+```json
+{
+  "connections": [
+    {
+      "id": "conn_001",
+      "from": "clue_marc_schedule",
+      "to": "clue_marc_car",
+      "description": "Marc said he was leaving at 21:00 but his car was still there at 21:45",
+      "type": "contradiction",
+      "required": true,
+      "unlocks": ["notif_pressure_marc"]
+    },
+    {
+      "id": "conn_002",
+      "from": "clue_marc_car",
+      "to": "clue_marc_still_there",
+      "description": "Both GPS and photo confirm Marc was at the studio much later than he claimed",
+      "type": "confirmation",
+      "required": true,
+      "unlocks": []
+    },
+    {
+      "id": "conn_003",
+      "from": "clue_marc_still_there",
+      "to": "clue_insurance_motive",
+      "description": "Marc was present at the scene AND had a financial motive",
+      "type": "motive_opportunity",
+      "required": true,
+      "unlocks": ["interrogation_marc_pressure"]
+    },
+    {
+      "id": "conn_004",
+      "from": "clue_time_contradiction",
+      "to": "clue_sophie_alibi",
+      "description": "Sophie's alibi is confirmed — she was at the café, not the studio",
+      "type": "alibi_confirmed",
+      "required": false,
+      "unlocks": []
+    }
+  ]
+}
+```
+
+| Field | Description |
+|---|---|
+| `from` / `to` | Clue IDs that must be connected |
+| `required` | Must be connected to unlock accusation |
+| `unlocks` | Notification or interrogation IDs unlocked by this connection |
+
+---
+
+## 8. INTERROGATIONS
+
+```json
+{
+  "interrogations": {
+    "suspect_sophie": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Sophie",
+          "text": "I already told the police everything. What do you want?",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you that night?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "sophie_alibi"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about your relationship with Julien",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "sophie_relationship"
+            }
+          ]
+        },
+        "sophie_alibi": {
+          "speaker": "Sophie",
+          "text": "I was at Café Luna until about 22:00. Then I went to the studio because Julien asked me to come.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "Can anyone at the café confirm?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "sophie_cafe_confirm"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS shows you were at the café at 21:30",
+              "type": "evidence",
+              "requires_evidence": "clue_sophie_alibi",
+              "next": "sophie_gps_reaction"
+            }
+          ]
+        },
+        "sophie_cafe_confirm": {
+          "speaker": "Sophie",
+          "text": "The bartender, Lucas. He knows me well. I go there every Thursday.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        },
+        "sophie_gps_reaction": {
+          "speaker": "Sophie",
+          "text": "Yes, I was there. I arrived around 21:15 and left after 22:00. You can check with Lucas the bartender.",
+          "emotion": "calm",
+          "clue_revealed": null,
+          "choices": [],
+          "end": true
+        },
+        "sophie_relationship": {
+          "speaker": "Sophie",
+          "text": "We broke up six months ago. It was... complicated. But we stayed professional. I still manage his exhibitions.",
+          "emotion": "nervous",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "Was there any tension between you?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "sophie_tension"
+            }
+          ]
+        },
+        "sophie_tension": {
+          "speaker": "Sophie",
+          "text": "Honestly? Yes. He wanted to switch galleries. That would have ruined me. But I wouldn't... I could never hurt him.",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        }
+      }
+    },
+    "suspect_marc": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Marc",
+          "text": "Such a tragedy. Julien was my best friend since childhood. I'll help however I can.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "When did you last see Julien?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "marc_last_seen"
+            },
+            {
+              "id": "q2",
+              "text": "How was your business partnership?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "marc_business"
+            }
+          ]
+        },
+        "marc_last_seen": {
+          "speaker": "Marc",
+          "text": "I stopped by the studio around 20:30 to discuss some accounts. Left at 21:00. Everything was fine.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "Your car was photographed outside the studio at 21:45",
+              "type": "evidence",
+              "requires_evidence": "clue_marc_car",
+              "next": "marc_car_caught"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS shows you at the studio until 22:00",
+              "type": "evidence",
+              "requires_evidence": "clue_marc_still_there",
+              "next": "marc_gps_caught"
+            }
+          ]
+        },
+        "marc_car_caught": {
+          "speaker": "Marc",
+          "text": "I... I may have stayed a bit longer. We had a lot to discuss. But I left before anything happened!",
+          "emotion": "nervous",
+          "clue_revealed": "clue_marc_lied",
+          "choices": [
+            {
+              "id": "q1a_i",
+              "text": "Why did you lie about leaving at 21:00?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "marc_why_lie"
+            }
+          ]
+        },
+        "marc_gps_caught": {
+          "speaker": "Marc",
+          "text": "That... that must be wrong. These GPS things aren't always accurate, right?",
+          "emotion": "nervous",
+          "clue_revealed": "clue_marc_lied",
+          "choices": [
+            {
+              "id": "q1b_i",
+              "text": "The car photo AND GPS both confirm it. Why are you lying?",
+              "type": "pressure",
+              "requires_evidence": "clue_marc_car",
+              "next": "marc_why_lie"
+            }
+          ]
+        },
+        "marc_why_lie": {
+          "speaker": "Marc",
+          "text": "Fine! Yes, I was there later. We had an argument about money. But when I left, he was alive! You have to believe me!",
+          "emotion": "angry",
+          "clue_revealed": "clue_argument",
+          "choices": [
+            {
+              "id": "q1_final",
+              "text": "Tell me about the life insurance policy",
+              "type": "evidence",
+              "requires_evidence": "clue_insurance_motive",
+              "next": "marc_insurance_confronted"
+            }
+          ]
+        },
+        "marc_insurance_confronted": {
+          "speaker": "Marc",
+          "text": "The insurance... How did you... That was Julien's idea! He wanted to protect the business! I didn't... I would never...",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        },
+        "marc_business": {
+          "speaker": "Marc",
+          "text": "Great, mostly. Julien handled the creative side, I handled finances. We complemented each other perfectly.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "Were there any financial disagreements?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "marc_finances"
+            }
+          ]
+        },
+        "marc_finances": {
+          "speaker": "Marc",
+          "text": "Nothing serious. Just the usual business discussions. Every partnership has those.",
+          "emotion": "defensive",
+          "choices": [],
+          "end": true
+        }
+      }
+    }
+  }
+}
+```
+
+---
+
+## 9. NOTIFICATIONS
+
+```json
+{
+  "notifications": [
+    {
+      "id": "notif_welcome",
+      "trigger": "case_start",
+      "type": "message",
+      "title": "New Case Assigned",
+      "body": "Case #001: The Silent Witness. A photographer found dead in his studio.",
+      "icon": "case_file",
+      "unlocks": null
+    },
+    {
+      "id": "notif_new_message",
+      "trigger": { "clue_discovered": "clue_marc_schedule" },
+      "type": "message",
+      "title": "New Message Found",
+      "body": "A message thread between Julien and an unknown number has been recovered.",
+      "icon": "messages",
+      "unlocks": "thread_002"
+    },
+    {
+      "id": "notif_pressure_marc",
+      "trigger": { "connection_made": "conn_001" },
+      "type": "interrogation",
+      "title": "New Interrogation Available",
+      "body": "You have enough evidence to pressure Marc Duval about his timeline.",
+      "icon": "interrogation",
+      "unlocks": "interrogation_marc_pressure"
+    },
+    {
+      "id": "notif_accusation_ready",
+      "trigger": "all_required_connections",
+      "type": "system",
+      "title": "Ready to Accuse",
+      "body": "You have gathered enough evidence. Visit the Evidence Board to make your accusation.",
+      "icon": "accusation",
+      "unlocks": "accusation_phase"
+    }
+  ]
+}
+```
+
+---
+
+## 10. ACCUSATION
+
+```json
+{
+  "accusation": {
+    "culprit": "suspect_marc",
+    "required_evidence": ["clue_marc_car", "clue_marc_still_there", "clue_insurance_motive"],
+    "min_evidence_count": 3,
+    "optional_evidence": ["clue_argument", "clue_marc_lied"],
+    "wrong_accusation_hint": "Consider who had both the opportunity AND the motive.",
+    "wrong_evidence_hint": "Your evidence doesn't tell a complete story. Look for timeline contradictions and motive."
+  }
+}
+```
+
+---
+
+## 11. RESOLUTION
+
+```json
+{
+  "resolution": {
+    "arrest_narrative": "Officers arrive at Marc Duval's apartment at dawn. When confronted with the evidence — his car at the scene, GPS placing him at the studio until 22:00, and the €500,000 life insurance policy — Marc breaks down. 'It wasn't supposed to happen like this,' he whispers as the handcuffs click shut.",
+    "evidence_summary": "Marc Duval lied about leaving the studio at 21:00. Security photos and GPS data prove he was there until at least 22:00. A €500,000 life insurance policy naming Marc as sole beneficiary reveals the motive. His own words — 'We had an argument about money' — complete the picture.",
+    "epilogue": "Sophie Martin takes over Julien's studio, turning it into a memorial gallery. His final exhibition, 'Shadows of Trust,' becomes his most celebrated work. Sometimes the most dangerous people are the ones we've known the longest.",
+    "next_case_teaser": {
+      "title": "Case #002: Digital Ghosts",
+      "tagline": "A tech CEO's phone keeps sending messages... three days after her death."
+    }
+  }
+}
+```
+
+---
+
+## 12. HINTS
+
+```json
+{
+  "hints": {
+    "clue_time_contradiction": {
+      "nudge": "Pay close attention to what times people mention in their messages.",
+      "push": "Compare Sophie's message about arriving at 22:00 with her GPS data.",
+      "reveal": "Sophie's message says 22:00 but GPS shows she was at Café Luna at 21:30 — she arrived early, but where was she before?"
+    },
+    "clue_marc_car": {
+      "nudge": "Look carefully at the security camera photo. What's in the background?",
+      "push": "Check if any vehicles in the photo belong to someone who claimed to have already left.",
+      "reveal": "Marc's car is visible in the security photo at 21:45, but he claimed he left at 21:00."
+    },
+    "conn_001": {
+      "nudge": "Two clues about Marc's timeline don't add up. Can you find them?",
+      "push": "Connect Marc's claim about leaving at 21:00 with proof he was still there.",
+      "reveal": "Connect 'Marc's Schedule' with 'Marc's Car' — he lied about when he left."
+    },
+    "conn_003": {
+      "nudge": "Opportunity alone isn't enough. What would drive someone to this?",
+      "push": "Marc was at the scene. But why? Look for a financial connection.",
+      "reveal": "Connect 'Marc at Studio Late' with 'Insurance Motive' — he was there AND had €500K reasons."
+    },
+    "accusation_suspect": {
+      "nudge": "Who had both access to the studio AND a reason to harm Julien?",
+      "push": "One suspect lied about their timeline. Why would an innocent person lie?",
+      "reveal": "Marc Duval had the opportunity (was at the studio) and the motive (insurance money)."
+    }
+  }
+}
+```
+
+---
+
+## 13. VALIDATION RULES
+
+When loading a case JSON, the CaseLoader validates:
+
+1. **Referential integrity:** All `clue_id` references in evidence point to existing entries in `clues[]`
+2. **Connection validity:** All `from`/`to` in `connections[]` point to existing clue IDs
+3. **Accusation consistency:** `culprit` exists in `suspects[]` with `is_culprit: true`
+4. **Evidence completeness:** All `required_evidence` in `accusation` exists in `clues[]`
+5. **Dialogue reachability:** All dialogue nodes are reachable from `start`
+6. **Unlock chain:** No circular dependencies in `unlock_condition` chains
+7. **Asset existence:** All referenced images/portraits exist in the case folder
+
+```gdscript
+func validate_case(case_data: Dictionary) -> Array[String]:
+    var errors: Array[String] = []
+    var clue_ids = []
+    for clue in case_data.clues:
+        clue_ids.append(clue.id)
+
+    # Check connections reference valid clues
+    for conn in case_data.connections:
+        if conn.from not in clue_ids:
+            errors.append("Connection %s references unknown clue: %s" % [conn.id, conn.from])
+        if conn.to not in clue_ids:
+            errors.append("Connection %s references unknown clue: %s" % [conn.id, conn.to])
+
+    # Check accusation references valid suspect
+    var suspect_ids = []
+    for s in case_data.suspects:
+        suspect_ids.append(s.id)
+    if case_data.accusation.culprit not in suspect_ids:
+        errors.append("Culprit ID not found in suspects")
+
+    # Check required evidence exists
+    for ev in case_data.accusation.required_evidence:
+        if ev not in clue_ids:
+            errors.append("Required evidence %s not in clues" % ev)
+
+    return errors
+```
