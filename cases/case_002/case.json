@@ -1,0 +1,1295 @@
+{
+  "meta": {
+    "case_id": "case_002",
+    "title": "Digital Ghosts",
+    "subtitle": "A tech CEO's phone keeps sending messages... three days after her death.",
+    "description": "Tech CEO Elena Vasquez is found dead in her home office. But her phone keeps sending messages days later. Someone scheduled those messages to build a false alibi. Uncover the digital trail to find the killer.",
+    "difficulty": "medium",
+    "order": 2,
+    "estimated_time_minutes": 30,
+    "stars_config": {
+      "three_star": { "max_hints": 0, "all_evidence": true },
+      "two_star": { "max_hints": 3 },
+      "one_star": { "max_hints": 999 }
+    },
+    "tags": ["murder", "technology", "scheduled_messages", "startup", "alibi"],
+    "language": "en",
+    "version": "1.0",
+    "author": "Studio"
+  },
+  "suspects": [
+    {
+      "id": "suspect_daniel",
+      "name": "Daniel Vasquez",
+      "age": 44,
+      "occupation": "Financial Advisor",
+      "relationship_to_victim": "Husband",
+      "bio": "Daniel and Elena have been married for 12 years. A successful financial advisor, he managed many of NovaTech's early investments. Recently, their marriage hit turbulence when Elena discovered messages from another woman on his phone.",
+      "portraits": {
+        "calm": "daniel_calm.png",
+        "nervous": "daniel_nervous.png",
+        "angry": "daniel_angry.png",
+        "defensive": "daniel_defensive.png",
+        "broken": "daniel_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 415 555 0142",
+        "email": "daniel.vasquez@vfinancial.com"
+      },
+      "is_culprit": false
+    },
+    {
+      "id": "suspect_priya",
+      "name": "Priya Sharma",
+      "age": 36,
+      "occupation": "CTO & Co-Founder, NovaTech",
+      "relationship_to_victim": "Business partner and co-founder",
+      "bio": "Priya co-founded NovaTech with Elena eight years ago. She built the entire technical platform from scratch. Recently, Elena moved to push Priya off the board, claiming the company needed 'new technical leadership' ahead of a major acquisition.",
+      "portraits": {
+        "calm": "priya_calm.png",
+        "nervous": "priya_nervous.png",
+        "angry": "priya_angry.png",
+        "defensive": "priya_defensive.png",
+        "broken": "priya_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 415 555 0287",
+        "email": "priya@novatech.io"
+      },
+      "is_culprit": true
+    },
+    {
+      "id": "suspect_ryan",
+      "name": "Ryan Cole",
+      "age": 29,
+      "occupation": "Personal Assistant",
+      "relationship_to_victim": "Personal assistant for 3 years",
+      "bio": "Ryan has been Elena's personal assistant for three years, managing her schedule, travel, and correspondence. He is fiercely loyal but recently learned Elena planned to let him go as part of a 'lifestyle simplification' ahead of NovaTech's acquisition deal.",
+      "portraits": {
+        "calm": "ryan_calm.png",
+        "nervous": "ryan_nervous.png",
+        "angry": "ryan_angry.png",
+        "defensive": "ryan_defensive.png",
+        "broken": "ryan_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 415 555 0391",
+        "email": "ryan.cole@novatech.io"
+      },
+      "is_culprit": false
+    }
+  ],
+  "victim": {
+    "id": "victim_elena",
+    "name": "Elena Vasquez",
+    "age": 41,
+    "occupation": "CEO & Co-Founder, NovaTech",
+    "bio": "Award-winning tech entrepreneur who built NovaTech from a garage startup into a $200M company. Found dead in her home office on the evening of March 18th. Her phone continued sending scheduled messages for three days after her death.",
+    "portrait": "elena_portrait.png",
+    "contact_info": {
+      "phone": "+1 415 555 0100",
+      "email": "elena@novatech.io"
+    }
+  },
+  "evidence": {
+    "messages": [
+      {
+        "thread_id": "thread_001",
+        "participants": ["victim_elena", "suspect_daniel"],
+        "display_name": "Daniel Vasquez",
+        "preview": "I'll pick up dinner on the way...",
+        "unread": false,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_001",
+            "sender": "victim_elena",
+            "text": "Hey, working late tonight. Big meeting tomorrow with the board.",
+            "timestamp": "2026-03-18T17:30:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_002",
+            "sender": "suspect_daniel",
+            "text": "Again? You've been working every night this week.",
+            "timestamp": "2026-03-18T17:35:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_003",
+            "sender": "victim_elena",
+            "text": "I know. I'll make it up to you. This deal changes everything for us.",
+            "timestamp": "2026-03-18T17:42:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_004",
+            "sender": "suspect_daniel",
+            "text": "I'll pick up dinner on the way home. Thai ok?",
+            "timestamp": "2026-03-18T18:10:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_005",
+            "sender": "victim_elena",
+            "text": "Perfect. Should be done by 9. Love you.",
+            "timestamp": "2026-03-18T18:15:00",
+            "clue_id": "clue_elena_alive_6pm",
+            "clue_highlight": "Should be done by 9"
+          },
+          {
+            "id": "msg_006",
+            "sender": "victim_elena",
+            "text": "Running a bit behind. Don't wait up.",
+            "timestamp": "2026-03-18T21:45:00",
+            "clue_id": "clue_scheduled_msg_1",
+            "clue_highlight": "Running a bit behind"
+          },
+          {
+            "id": "msg_007",
+            "sender": "victim_elena",
+            "text": "Heading to bed. Exhausted. Talk tomorrow.",
+            "timestamp": "2026-03-18T23:30:00",
+            "clue_id": "clue_scheduled_msg_2",
+            "clue_highlight": "Talk tomorrow"
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_002",
+        "participants": ["victim_elena", "suspect_priya"],
+        "display_name": "Priya Sharma",
+        "preview": "We need to talk about the board vote...",
+        "unread": true,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_008",
+            "sender": "suspect_priya",
+            "text": "Elena, we need to talk about the board vote. You can't just push me out.",
+            "timestamp": "2026-03-17T14:20:00",
+            "clue_id": "clue_priya_conflict",
+            "clue_highlight": "push me out"
+          },
+          {
+            "id": "msg_009",
+            "sender": "victim_elena",
+            "text": "It's not personal, Priya. The acquirers want fresh technical leadership. You'll get a generous exit package.",
+            "timestamp": "2026-03-17T14:25:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_010",
+            "sender": "suspect_priya",
+            "text": "Not personal?! I BUILT this platform. Every line of code. Eight years of my life.",
+            "timestamp": "2026-03-17T14:28:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_011",
+            "sender": "victim_elena",
+            "text": "The board meets Thursday. My mind is made up. I'm sorry.",
+            "timestamp": "2026-03-17T14:35:00",
+            "clue_id": "clue_board_meeting_date",
+            "clue_highlight": "Thursday"
+          },
+          {
+            "id": "msg_012",
+            "sender": "suspect_priya",
+            "text": "You'll regret this, Elena.",
+            "timestamp": "2026-03-17T14:40:00",
+            "clue_id": "clue_priya_threat",
+            "clue_highlight": "You'll regret this"
+          },
+          {
+            "id": "msg_013",
+            "sender": "victim_elena",
+            "text": "Can we meet at the office Wednesday evening to discuss transition? 7pm?",
+            "timestamp": "2026-03-18T09:00:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_014",
+            "sender": "suspect_priya",
+            "text": "Fine. I'll be there.",
+            "timestamp": "2026-03-18T09:15:00",
+            "clue_id": null
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_003",
+        "participants": ["victim_elena", "suspect_ryan"],
+        "display_name": "Ryan Cole",
+        "preview": "Can you reschedule Dr. Park to Friday?",
+        "unread": false,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_015",
+            "sender": "victim_elena",
+            "text": "Ryan, can you reschedule Dr. Park to Friday? I need Wednesday evening free.",
+            "timestamp": "2026-03-18T08:45:00",
+            "clue_id": "clue_wednesday_evening_free",
+            "clue_highlight": "Wednesday evening free"
+          },
+          {
+            "id": "msg_016",
+            "sender": "suspect_ryan",
+            "text": "Done. Also, the quarterly review docs are on your desk. Anything else before I head out?",
+            "timestamp": "2026-03-18T08:50:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_017",
+            "sender": "victim_elena",
+            "text": "That's all. You can leave at 5 today. I'll be in the home office all evening.",
+            "timestamp": "2026-03-18T08:55:00",
+            "clue_id": "clue_elena_home_office",
+            "clue_highlight": "home office all evening"
+          },
+          {
+            "id": "msg_018",
+            "sender": "suspect_ryan",
+            "text": "Thanks boss. Have a good night!",
+            "timestamp": "2026-03-18T17:00:00",
+            "clue_id": null
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_004",
+        "participants": ["victim_elena", "suspect_priya"],
+        "display_name": "Priya Sharma",
+        "preview": "Still at the office. Finishing up the migration...",
+        "unread": true,
+        "unlock_condition": "clue_priya_technical_access",
+        "messages": [
+          {
+            "id": "msg_019",
+            "sender": "suspect_priya",
+            "text": "Still at the office. Finishing up the server migration scripts. Wanted to make sure everything is documented before... the transition.",
+            "timestamp": "2026-03-18T20:00:00",
+            "clue_id": "clue_priya_late_at_office",
+            "clue_highlight": "Still at the office"
+          },
+          {
+            "id": "msg_020",
+            "sender": "victim_elena",
+            "text": "Thanks Priya. I appreciate you being professional about this.",
+            "timestamp": "2026-03-18T20:15:00",
+            "clue_id": "clue_ghost_message_priya",
+            "clue_highlight": "I appreciate you being professional"
+          }
+        ]
+      }
+    ],
+    "photos": [
+      {
+        "id": "photo_001",
+        "filename": "home_office_security.png",
+        "caption": "Elena's home — doorbell camera footage",
+        "timestamp": "2026-03-18T19:22:00",
+        "location": "47 Hillcrest Drive, Palo Alto",
+        "unlock_condition": null,
+        "hotspots": [
+          {
+            "id": "hotspot_001",
+            "x_percent": 40,
+            "y_percent": 55,
+            "width_percent": 20,
+            "height_percent": 25,
+            "clue_id": "clue_priya_at_house",
+            "description": "A figure matching Priya's build and car (silver Tesla Model 3) visible approaching the front door at 19:22"
+          },
+          {
+            "id": "hotspot_002",
+            "x_percent": 70,
+            "y_percent": 60,
+            "width_percent": 20,
+            "height_percent": 15,
+            "clue_id": "clue_priya_car_plate",
+            "description": "License plate partially visible on a silver Tesla — matches Priya's registered vehicle"
+          }
+        ]
+      },
+      {
+        "id": "photo_002",
+        "filename": "parking_garage_cam.png",
+        "caption": "NovaTech office parking garage — security camera",
+        "timestamp": "2026-03-18T18:48:00",
+        "location": "NovaTech HQ, 500 Innovation Way, Palo Alto",
+        "unlock_condition": null,
+        "hotspots": [
+          {
+            "id": "hotspot_003",
+            "x_percent": 30,
+            "y_percent": 40,
+            "width_percent": 25,
+            "height_percent": 20,
+            "clue_id": "clue_priya_left_office_early",
+            "description": "Priya's silver Tesla leaving the NovaTech parking garage at 18:48 — she claimed she was at the office until 21:00"
+          }
+        ]
+      },
+      {
+        "id": "photo_003",
+        "filename": "elena_desk_phone.png",
+        "caption": "Elena's desk in home office — crime scene photo",
+        "timestamp": "2026-03-21T09:00:00",
+        "location": "47 Hillcrest Drive, Home Office",
+        "unlock_condition": "clue_scheduled_msg_1",
+        "hotspots": [
+          {
+            "id": "hotspot_004",
+            "x_percent": 45,
+            "y_percent": 25,
+            "width_percent": 20,
+            "height_percent": 15,
+            "clue_id": "clue_scheduling_app",
+            "description": "Elena's phone screen shows a message scheduling app 'TimeSend Pro' with multiple messages queued — someone programmed her phone to send messages after death"
+          },
+          {
+            "id": "hotspot_005",
+            "x_percent": 10,
+            "y_percent": 65,
+            "width_percent": 30,
+            "height_percent": 20,
+            "clue_id": "clue_board_documents_desk",
+            "description": "Printed board meeting documents visible on the desk with handwritten notes: 'Priya removal — vote confirmed 4-1'"
+          }
+        ]
+      }
+    ],
+    "calls": [
+      {
+        "id": "call_001",
+        "caller": "suspect_daniel",
+        "receiver": "victim_elena",
+        "timestamp": "2026-03-18T19:05:00",
+        "duration_seconds": 0,
+        "type": "outgoing",
+        "transcript": [
+          { "speaker": "System", "text": "Call went to voicemail. No answer from Elena's phone." }
+        ],
+        "unlock_condition": null
+      },
+      {
+        "id": "call_002",
+        "caller": "suspect_priya",
+        "receiver": "victim_elena",
+        "timestamp": "2026-03-18T18:30:00",
+        "duration_seconds": 245,
+        "type": "incoming",
+        "transcript": [
+          { "speaker": "Elena", "text": "Priya, I thought we were meeting at seven?" },
+          { "speaker": "Priya", "text": "I'm still wrapping up at the office. Can I come to your place instead? It's closer.", "clue_id": "clue_priya_changed_location" },
+          { "speaker": "Elena", "text": "Sure. 47 Hillcrest. The door code is 4821." },
+          { "speaker": "Priya", "text": "I know where you live, Elena. I've been to your house a hundred times.", "clue_id": "clue_priya_knows_house" },
+          { "speaker": "Elena", "text": "Right. See you around seven then." },
+          { "speaker": "Priya", "text": "See you then." }
+        ],
+        "unlock_condition": null
+      },
+      {
+        "id": "call_003",
+        "caller": "suspect_ryan",
+        "receiver": "victim_elena",
+        "timestamp": "2026-03-19T08:30:00",
+        "duration_seconds": 0,
+        "type": "outgoing",
+        "transcript": [
+          { "speaker": "System", "text": "Call went to voicemail. Ryan tried to reach Elena the morning after to confirm her 9AM meeting. No answer." }
+        ],
+        "unlock_condition": null
+      }
+    ],
+    "gps_logs": [
+      {
+        "id": "gps_001",
+        "device_owner": "suspect_priya",
+        "entries": [
+          { "timestamp": "2026-03-18T17:00:00", "location": "500 Innovation Way, Palo Alto", "label": "NovaTech HQ" },
+          { "timestamp": "2026-03-18T18:48:00", "location": "500 Innovation Way, Palo Alto", "label": "NovaTech Parking Garage", "clue_id": "clue_priya_departure_time" },
+          { "timestamp": "2026-03-18T19:18:00", "location": "47 Hillcrest Drive, Palo Alto", "label": "Elena's Residence", "clue_id": "clue_priya_at_elena_house" },
+          { "timestamp": "2026-03-18T20:35:00", "location": "47 Hillcrest Drive, Palo Alto", "label": "Elena's Residence", "clue_id": "clue_priya_stayed_long" },
+          { "timestamp": "2026-03-18T21:10:00", "location": "782 Emerson St, Palo Alto", "label": "Priya's Apartment" }
+        ]
+      },
+      {
+        "id": "gps_002",
+        "device_owner": "suspect_daniel",
+        "entries": [
+          { "timestamp": "2026-03-18T17:30:00", "location": "200 Market St, San Francisco", "label": "Daniel's Office" },
+          { "timestamp": "2026-03-18T18:00:00", "location": "1500 Folsom St, San Francisco", "label": "Bay Athletic Club", "clue_id": "clue_daniel_gym" },
+          { "timestamp": "2026-03-18T19:30:00", "location": "1500 Folsom St, San Francisco", "label": "Bay Athletic Club" },
+          { "timestamp": "2026-03-18T20:15:00", "location": "888 Brannan St, San Francisco", "label": "Thai Orchid Restaurant" },
+          { "timestamp": "2026-03-18T21:00:00", "location": "47 Hillcrest Drive, Palo Alto", "label": "Home" }
+        ]
+      },
+      {
+        "id": "gps_003",
+        "device_owner": "suspect_ryan",
+        "entries": [
+          { "timestamp": "2026-03-18T17:00:00", "location": "500 Innovation Way, Palo Alto", "label": "NovaTech HQ" },
+          { "timestamp": "2026-03-18T17:30:00", "location": "250 University Ave, Palo Alto", "label": "Downtown Palo Alto" },
+          { "timestamp": "2026-03-18T18:00:00", "location": "1120 Cowper St, Palo Alto", "label": "Ryan's Apartment" },
+          { "timestamp": "2026-03-18T18:30:00", "location": "1120 Cowper St, Palo Alto", "label": "Ryan's Apartment" },
+          { "timestamp": "2026-03-18T22:00:00", "location": "1120 Cowper St, Palo Alto", "label": "Ryan's Apartment", "clue_id": "clue_ryan_home_all_evening" }
+        ]
+      }
+    ],
+    "documents": [
+      {
+        "id": "doc_001",
+        "title": "NovaTech Board Meeting Minutes — March 14",
+        "type": "pdf_preview",
+        "filename": "board_minutes_march14.png",
+        "content_summary": "Board meeting minutes from March 14, 2026. Agenda item #3: 'Leadership Restructuring.' Motion to remove Priya Sharma as CTO effective April 1st. Vote: 4-1 in favor (Priya dissenting). Elena Vasquez cited 'strategic realignment for acquisition readiness.' Priya's equity buyout valued at $2.8M — significantly below market value of her shares post-acquisition (estimated $15M+).",
+        "unlock_condition": null,
+        "clue_id": "clue_priya_ousted"
+      },
+      {
+        "id": "doc_002",
+        "title": "Elena Vasquez — Living Trust & Life Insurance",
+        "type": "pdf_preview",
+        "filename": "elena_trust_document.png",
+        "content_summary": "Elena Vasquez's living trust, updated January 2026. Primary beneficiary: Daniel Vasquez (husband) — receives estate valued at approximately $8M including real estate and personal assets. Life insurance policy: $5M, beneficiary Daniel Vasquez. NovaTech shares held in separate trust for company continuity. Note: Trust was updated 2 months before death.",
+        "unlock_condition": "clue_daniel_gym",
+        "clue_id": "clue_daniel_insurance_motive"
+      },
+      {
+        "id": "doc_003",
+        "title": "NovaTech Server Access Logs — March 18",
+        "type": "pdf_preview",
+        "filename": "server_access_logs.png",
+        "content_summary": "NovaTech internal server access logs for March 18, 2026. Entry at 17:45: Priya Sharma accessed Elena's cloud account using admin credentials. Files accessed: Elena's personal calendar, contacts list, message drafts. Session duration: 38 minutes. Note: Priya has root-level admin access to all company systems as CTO.",
+        "unlock_condition": "clue_scheduling_app",
+        "clue_id": "clue_priya_technical_access"
+      }
+    ]
+  },
+  "clues": [
+    {
+      "id": "clue_elena_alive_6pm",
+      "title": "Elena Alive at 6 PM",
+      "description": "Elena's last confirmed live message was sent at 18:15 on March 18, telling Daniel she'd be done by 9",
+      "type": "timeline",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "clock"
+    },
+    {
+      "id": "clue_scheduled_msg_1",
+      "title": "Suspicious Late Message",
+      "description": "Elena texted Daniel 'Running a bit behind' at 21:45 — but the coroner estimates time of death between 19:30 and 20:30",
+      "type": "contradiction",
+      "source": "messages",
+      "importance": "key",
+      "icon": "clock"
+    },
+    {
+      "id": "clue_scheduled_msg_2",
+      "title": "Post-Mortem Message",
+      "description": "Elena texted 'Heading to bed' at 23:30 — hours after estimated time of death. This message was sent automatically.",
+      "type": "contradiction",
+      "source": "messages",
+      "importance": "key",
+      "icon": "ghost"
+    },
+    {
+      "id": "clue_priya_conflict",
+      "title": "Priya's Conflict with Elena",
+      "description": "Priya confronted Elena about being pushed out of NovaTech. Their messages show escalating tension.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "key",
+      "icon": "conflict"
+    },
+    {
+      "id": "clue_board_meeting_date",
+      "title": "Board Meeting Deadline",
+      "description": "Elena told Priya the board meets Thursday (March 19) to finalize her removal. Elena died the night before.",
+      "type": "timeline",
+      "source": "messages",
+      "importance": "key",
+      "icon": "calendar"
+    },
+    {
+      "id": "clue_priya_threat",
+      "title": "Priya's Threat",
+      "description": "Priya texted Elena 'You'll regret this' after learning about the board vote to remove her.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "key",
+      "icon": "warning"
+    },
+    {
+      "id": "clue_wednesday_evening_free",
+      "title": "Elena Cleared Her Evening",
+      "description": "Elena asked Ryan to reschedule appointments to keep Wednesday evening free — for the meeting with Priya.",
+      "type": "timeline",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "calendar"
+    },
+    {
+      "id": "clue_elena_home_office",
+      "title": "Elena Working From Home",
+      "description": "Elena told Ryan she would be in her home office all evening on March 18.",
+      "type": "location",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_priya_late_at_office",
+      "title": "Priya Claims Office Presence",
+      "description": "Priya messaged Elena at 20:00 saying she was 'still at the office' — but GPS and parking cam show she left at 18:48.",
+      "type": "contradiction",
+      "source": "messages",
+      "importance": "key",
+      "icon": "lie"
+    },
+    {
+      "id": "clue_ghost_message_priya",
+      "title": "Ghost Reply to Priya",
+      "description": "Elena replied to Priya at 20:15 thanking her for being professional — but Elena was likely already dead by then. Another scheduled message.",
+      "type": "contradiction",
+      "source": "messages",
+      "importance": "key",
+      "icon": "ghost"
+    },
+    {
+      "id": "clue_priya_at_house",
+      "title": "Priya at Elena's House",
+      "description": "Doorbell camera shows a figure matching Priya arriving at Elena's front door at 19:22 on March 18.",
+      "type": "presence",
+      "source": "photos",
+      "importance": "key",
+      "icon": "camera"
+    },
+    {
+      "id": "clue_priya_car_plate",
+      "title": "Priya's License Plate",
+      "description": "The doorbell camera captured a partial license plate on a silver Tesla matching Priya's registered vehicle.",
+      "type": "identification",
+      "source": "photos",
+      "importance": "supporting",
+      "icon": "car"
+    },
+    {
+      "id": "clue_priya_left_office_early",
+      "title": "Priya Left Office Early",
+      "description": "Parking garage camera shows Priya's Tesla leaving NovaTech at 18:48 — she told Elena she was still working late at the office at 20:00.",
+      "type": "contradiction",
+      "source": "photos",
+      "importance": "key",
+      "icon": "car"
+    },
+    {
+      "id": "clue_scheduling_app",
+      "title": "Message Scheduling App",
+      "description": "Elena's phone has 'TimeSend Pro' installed with multiple messages queued and sent automatically after her death. Someone programmed these.",
+      "type": "method",
+      "source": "photos",
+      "importance": "key",
+      "icon": "phone"
+    },
+    {
+      "id": "clue_board_documents_desk",
+      "title": "Board Vote Documents",
+      "description": "Printed board documents on Elena's desk confirm the vote to remove Priya was 4-1, with handwritten notes about the decision.",
+      "type": "motive",
+      "source": "photos",
+      "importance": "supporting",
+      "icon": "document"
+    },
+    {
+      "id": "clue_priya_changed_location",
+      "title": "Priya Changed Meeting Location",
+      "description": "Priya called Elena to change the meeting location from the office to Elena's home — putting herself at the crime scene.",
+      "type": "opportunity",
+      "source": "calls",
+      "importance": "key",
+      "icon": "phone"
+    },
+    {
+      "id": "clue_priya_knows_house",
+      "title": "Priya Knows the House",
+      "description": "Priya told Elena 'I know where you live. I've been to your house a hundred times' — familiar with the layout.",
+      "type": "opportunity",
+      "source": "calls",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_priya_departure_time",
+      "title": "Priya's GPS Departure",
+      "description": "Priya's GPS shows she left NovaTech at 18:48 — contradicting her claim of working late.",
+      "type": "contradiction",
+      "source": "gps",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_priya_at_elena_house",
+      "title": "Priya's GPS at Elena's House",
+      "description": "Priya's GPS places her at Elena's residence at 19:18, four minutes before the doorbell camera footage.",
+      "type": "presence",
+      "source": "gps",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_priya_stayed_long",
+      "title": "Priya Stayed Over an Hour",
+      "description": "Priya's GPS shows she was at Elena's house from 19:18 to at least 20:35 — over 75 minutes, overlapping with the estimated time of death.",
+      "type": "presence",
+      "source": "gps",
+      "importance": "key",
+      "icon": "clock"
+    },
+    {
+      "id": "clue_daniel_gym",
+      "title": "Daniel at the Gym",
+      "description": "Daniel's GPS confirms he was at Bay Athletic Club from 18:00 to 19:30, then picked up dinner — he has a solid alibi.",
+      "type": "alibi",
+      "source": "gps",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_ryan_home_all_evening",
+      "title": "Ryan Home All Evening",
+      "description": "Ryan's GPS shows he went straight home at 17:30 and stayed there all evening. His alibi checks out.",
+      "type": "alibi",
+      "source": "gps",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_priya_ousted",
+      "title": "Board Voted to Remove Priya",
+      "description": "Official board minutes confirm Priya was being removed as CTO. Her $2.8M buyout was far below the $15M+ her shares would be worth post-acquisition.",
+      "type": "motive",
+      "source": "documents",
+      "importance": "key",
+      "icon": "money"
+    },
+    {
+      "id": "clue_daniel_insurance_motive",
+      "title": "Daniel's Insurance Motive",
+      "description": "Daniel is the beneficiary of Elena's $5M life insurance and $8M estate. However, his GPS alibi is solid.",
+      "type": "motive",
+      "source": "documents",
+      "importance": "supporting",
+      "icon": "money"
+    },
+    {
+      "id": "clue_priya_technical_access",
+      "title": "Priya Accessed Elena's Accounts",
+      "description": "Server logs show Priya used admin credentials to access Elena's cloud account at 17:45 on March 18 — viewing her calendar, contacts, and message drafts. This is how she knew how to craft convincing scheduled messages.",
+      "type": "method",
+      "source": "documents",
+      "importance": "key",
+      "icon": "computer"
+    },
+    {
+      "id": "clue_priya_lied_about_location",
+      "title": "Priya Lied About Her Location",
+      "description": "Priya claimed she was at the office until 21:00, but GPS, parking cameras, and doorbell footage all prove she was at Elena's house.",
+      "type": "contradiction",
+      "source": "interrogation",
+      "importance": "key",
+      "icon": "lie"
+    },
+    {
+      "id": "clue_priya_knew_scheduling",
+      "title": "Priya Knew About Scheduling Apps",
+      "description": "During interrogation, Priya revealed detailed knowledge of message scheduling tools before being told about TimeSend Pro.",
+      "type": "slip",
+      "source": "interrogation",
+      "importance": "key",
+      "icon": "warning"
+    }
+  ],
+  "connections": [
+    {
+      "id": "conn_001",
+      "from": "clue_scheduled_msg_1",
+      "to": "clue_scheduling_app",
+      "description": "The 'running behind' message was sent after Elena's death — the scheduling app on her phone proves messages were pre-programmed",
+      "type": "method_confirmed",
+      "required": true,
+      "unlocks": ["notif_ghost_messages"]
+    },
+    {
+      "id": "conn_002",
+      "from": "clue_priya_left_office_early",
+      "to": "clue_priya_late_at_office",
+      "description": "Priya told Elena she was still at the office at 20:00, but the parking camera shows she left at 18:48 — she lied about her location",
+      "type": "contradiction",
+      "required": true,
+      "unlocks": ["notif_priya_lied"]
+    },
+    {
+      "id": "conn_003",
+      "from": "clue_priya_at_elena_house",
+      "to": "clue_priya_stayed_long",
+      "description": "GPS confirms Priya was at Elena's house from 19:18 to 20:35 — she was present during the estimated time of death",
+      "type": "opportunity",
+      "required": true,
+      "unlocks": []
+    },
+    {
+      "id": "conn_004",
+      "from": "clue_priya_ousted",
+      "to": "clue_priya_threat",
+      "description": "Priya was losing $12M+ in equity AND her life's work — and she threatened Elena the day before the murder",
+      "type": "motive_confirmed",
+      "required": true,
+      "unlocks": ["notif_accusation_ready"]
+    },
+    {
+      "id": "conn_005",
+      "from": "clue_scheduling_app",
+      "to": "clue_priya_technical_access",
+      "description": "Priya accessed Elena's cloud accounts hours before the murder — she had the technical skill and access to set up scheduled messages as a false alibi",
+      "type": "method_confirmed",
+      "required": true,
+      "unlocks": ["interrogation_priya_pressure"]
+    },
+    {
+      "id": "conn_006",
+      "from": "clue_daniel_gym",
+      "to": "clue_daniel_insurance_motive",
+      "description": "Daniel had a financial motive but a solid GPS alibi — he was at the gym and restaurant during the time of death",
+      "type": "alibi_confirmed",
+      "required": false,
+      "unlocks": []
+    },
+    {
+      "id": "conn_007",
+      "from": "clue_priya_at_house",
+      "to": "clue_priya_car_plate",
+      "description": "The doorbell camera figure and the license plate both confirm Priya was physically at Elena's house",
+      "type": "confirmation",
+      "required": false,
+      "unlocks": []
+    }
+  ],
+  "interrogations": {
+    "suspect_daniel": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Daniel",
+          "text": "I still can't believe she's gone. Elena was... she was everything. Please, ask me whatever you need.",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you on the evening of March 18th?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "daniel_alibi"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about your relationship with Elena.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "daniel_relationship"
+            },
+            {
+              "id": "q3",
+              "text": "Were you aware of Elena's life insurance policy?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "daniel_insurance"
+            }
+          ]
+        },
+        "daniel_alibi": {
+          "speaker": "Daniel",
+          "text": "I left my office in the city around 5:30. Went to the gym — Bay Athletic Club on Folsom. Worked out for about ninety minutes. Then I picked up Thai food from our usual place and drove home. Got back around 9.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "Can anyone at the gym confirm you were there?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "daniel_gym_confirm"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS confirms you were at the gym from 6 to 7:30.",
+              "type": "evidence",
+              "requires_evidence": "clue_daniel_gym",
+              "next": "daniel_gps_reaction"
+            }
+          ]
+        },
+        "daniel_gym_confirm": {
+          "speaker": "Daniel",
+          "text": "The front desk scans your membership card. My trainer, Jake, was there too — we did a session together. Check with them.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        },
+        "daniel_gps_reaction": {
+          "speaker": "Daniel",
+          "text": "Yes, that's exactly right. I have nothing to hide. I was nowhere near the house when... when it happened.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1b_i",
+              "text": "Elena sent you messages at 9:45 PM and 11:30 PM. Did anything seem off?",
+              "type": "evidence",
+              "requires_evidence": "clue_scheduled_msg_1",
+              "next": "daniel_scheduled_msgs"
+            }
+          ]
+        },
+        "daniel_scheduled_msgs": {
+          "speaker": "Daniel",
+          "text": "Now that you mention it... the 'don't wait up' text was strange. Elena always said goodnight in person if she was home. And the late one about going to bed — she never texts like that. She'd just come find me. I thought she was just distracted with work. God, I should have checked on her.",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        },
+        "daniel_relationship": {
+          "speaker": "Daniel",
+          "text": "We had our problems. What marriage doesn't after twelve years? But we loved each other. Elena was driven, sometimes too driven. The company consumed her.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "Elena found messages from another woman on your phone. Want to explain?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "daniel_affair"
+            }
+          ]
+        },
+        "daniel_affair": {
+          "speaker": "Daniel",
+          "text": "That was... a mistake. A coworker. It was over before it started — one dinner, some texts. Elena found out and was furious. We were working through it in couples therapy. I know how it looks, but I would never — I loved my wife.",
+          "emotion": "nervous",
+          "choices": [
+            {
+              "id": "q2a_i",
+              "text": "A $5 million insurance policy is a lot of motivation for someone already looking elsewhere.",
+              "type": "evidence",
+              "requires_evidence": "clue_daniel_insurance_motive",
+              "next": "daniel_insurance_pressure"
+            }
+          ]
+        },
+        "daniel_insurance_pressure": {
+          "speaker": "Daniel",
+          "text": "That policy has been in place for eight years! Elena took it out when we bought the house. I didn't ask for it, I didn't want it — I wanted HER. You think I'd trade my wife for money? Check my alibi. Check the gym. Check the restaurant. I wasn't there!",
+          "emotion": "angry",
+          "choices": [],
+          "end": true
+        },
+        "daniel_insurance": {
+          "speaker": "Daniel",
+          "text": "Yes, we both had policies. That's standard when you have a mortgage and assets. Elena insisted on it years ago. It's not suspicious — it's responsible financial planning.",
+          "emotion": "defensive",
+          "choices": [],
+          "end": true
+        }
+      }
+    },
+    "suspect_priya": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Priya",
+          "text": "Elena and I built NovaTech together. Whatever our disagreements, I respected her. I want to help find who did this.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you on the evening of March 18th?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "priya_alibi"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about the board vote to remove you as CTO.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "priya_board_vote"
+            },
+            {
+              "id": "q3",
+              "text": "You texted Elena 'You'll regret this.' What did you mean?",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_threat",
+              "next": "priya_threat_response"
+            }
+          ]
+        },
+        "priya_alibi": {
+          "speaker": "Priya",
+          "text": "I was at the NovaTech office. Working on server migration documentation. I was there until around 9 PM, then went straight home.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "The parking garage camera shows your car leaving at 6:48 PM.",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_left_office_early",
+              "next": "priya_caught_leaving"
+            },
+            {
+              "id": "q1b",
+              "text": "Can anyone at the office confirm you were there?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "priya_alibi_details"
+            }
+          ]
+        },
+        "priya_alibi_details": {
+          "speaker": "Priya",
+          "text": "Most people had gone home by then. I was working alone. But the building has keycard logs — you can check those.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1b_i",
+              "text": "Your GPS tells a different story, Priya.",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_departure_time",
+              "next": "priya_gps_caught"
+            }
+          ]
+        },
+        "priya_caught_leaving": {
+          "speaker": "Priya",
+          "text": "I... that's... I may have left a bit earlier than I said. I went to get dinner. I came back afterward.",
+          "emotion": "nervous",
+          "clue_revealed": "clue_priya_lied_about_location",
+          "choices": [
+            {
+              "id": "q1a_i",
+              "text": "You didn't get dinner. Your GPS shows you went to Elena's house at 7:18 PM.",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_at_elena_house",
+              "next": "priya_at_house_caught"
+            }
+          ]
+        },
+        "priya_gps_caught": {
+          "speaker": "Priya",
+          "text": "GPS data can be... look, maybe I stepped out for a while. Is that a crime?",
+          "emotion": "nervous",
+          "clue_revealed": "clue_priya_lied_about_location",
+          "choices": [
+            {
+              "id": "q1b_ii",
+              "text": "Your GPS and the doorbell camera both place you at Elena's house. Stop lying.",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_at_house",
+              "next": "priya_at_house_caught"
+            }
+          ]
+        },
+        "priya_at_house_caught": {
+          "speaker": "Priya",
+          "text": "Fine! Yes, I went to Elena's house. She asked me to come over to discuss the transition. We talked, I left. She was alive when I left!",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q1_final",
+              "text": "You were there for over an hour. Elena's estimated time of death is between 7:30 and 8:30 PM. You were in the house.",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_stayed_long",
+              "next": "priya_time_pressure"
+            }
+          ]
+        },
+        "priya_time_pressure": {
+          "speaker": "Priya",
+          "text": "We were talking! It was a difficult conversation! That doesn't mean I... You can't just... I want a lawyer.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q1_final_ii",
+              "text": "One more question. Tell me about the message scheduling app on Elena's phone.",
+              "type": "evidence",
+              "requires_evidence": "clue_scheduling_app",
+              "next": "priya_scheduling_slip"
+            }
+          ]
+        },
+        "priya_scheduling_slip": {
+          "speaker": "Priya",
+          "text": "TimeSend Pro? That's a basic delayed-send utility. Any app store has dozens of... Wait. How would I know which specific app was used?",
+          "emotion": "nervous",
+          "clue_revealed": "clue_priya_knew_scheduling",
+          "choices": [
+            {
+              "id": "q1_final_iii",
+              "text": "I didn't tell you the app name, Priya. You accessed Elena's phone, installed the app, and scheduled messages to make it look like she was still alive.",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "priya_breakdown"
+            }
+          ]
+        },
+        "priya_breakdown": {
+          "speaker": "Priya",
+          "text": "She was stealing everything from me! Eight years! I wrote every line of code that made NovaTech worth $200 million, and she was going to throw me out with a fraction of what I deserve! I just... I went there to talk and she was so cold about it, like I was just another employee being let go. I snapped. I didn't plan... the messages, that was after. I panicked. I thought if it looked like she was alive longer, no one would look at me.",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        },
+        "priya_board_vote": {
+          "speaker": "Priya",
+          "text": "It was business. Elena thought the acquirers wanted new blood. I disagreed, but these things happen in startups. I wasn't happy about it, but it was just business.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "The buyout was $2.8 million. Your shares post-acquisition would be worth over $15 million. That's not 'just business.'",
+              "type": "evidence",
+              "requires_evidence": "clue_priya_ousted",
+              "next": "priya_money_reaction"
+            }
+          ]
+        },
+        "priya_money_reaction": {
+          "speaker": "Priya",
+          "text": "Elena knew what those shares were worth. The buyout was insulting. But I was going to fight it through legal channels. I'd already spoken to a lawyer.",
+          "emotion": "angry",
+          "choices": [],
+          "end": true
+        },
+        "priya_threat_response": {
+          "speaker": "Priya",
+          "text": "That was said in anger. I meant she'd regret losing me as CTO when the migration fell apart. I didn't mean... It wasn't a threat. It was frustration.",
+          "emotion": "defensive",
+          "choices": [],
+          "end": true
+        }
+      }
+    },
+    "suspect_ryan": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Ryan",
+          "text": "I can't believe this happened. Elena was the best boss I ever had. She was tough but fair. I just... I should have been there.",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you on the evening of March 18th?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "ryan_alibi"
+            },
+            {
+              "id": "q2",
+              "text": "I heard Elena was planning to fire you next week.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "ryan_firing"
+            },
+            {
+              "id": "q3",
+              "text": "Did you know about Elena's meeting with Priya that evening?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "ryan_meeting_knowledge"
+            }
+          ]
+        },
+        "ryan_alibi": {
+          "speaker": "Ryan",
+          "text": "Elena let me leave early — around 5. I went home, ordered pizza, watched a movie. Pretty boring evening. I tried calling her the next morning when she didn't show for her 9 AM and got voicemail.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "Your GPS shows you were home all evening. Anyone who can confirm?",
+              "type": "evidence",
+              "requires_evidence": "clue_ryan_home_all_evening",
+              "next": "ryan_alibi_confirm"
+            }
+          ]
+        },
+        "ryan_alibi_confirm": {
+          "speaker": "Ryan",
+          "text": "My roommate, Kevin, was home too. We watched the Warriors game together. He can vouch for me. And yeah, the pizza delivery was around 6:30 — Domino's, you can check the order history.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        },
+        "ryan_firing": {
+          "speaker": "Ryan",
+          "text": "Wait, what? Fired? No... Elena never said anything about that to me. Where did you hear that?",
+          "emotion": "nervous",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "It was in her calendar notes. 'Discuss Ryan transition' was scheduled for next Monday.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "ryan_firing_reaction"
+            }
+          ]
+        },
+        "ryan_firing_reaction": {
+          "speaker": "Ryan",
+          "text": "I... I didn't know. She said the role might change with the acquisition, but I thought she meant expanded responsibilities, not... Even if she was going to let me go, I would never hurt her. She wrote me a recommendation letter last month for grad school applications. Does that sound like someone I'd want to harm?",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        },
+        "ryan_meeting_knowledge": {
+          "speaker": "Ryan",
+          "text": "I knew she cleared her evening. She asked me to reschedule her Dr. Park appointment. She didn't say who she was meeting, just that she needed the time. But I figured it was Priya — things had been tense between them all week.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3a",
+              "text": "Did you notice anything unusual about Elena that day?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "ryan_observation"
+            }
+          ]
+        },
+        "ryan_observation": {
+          "speaker": "Ryan",
+          "text": "Actually, yes. Priya came by Elena's office around 5:45 that afternoon. They talked for like ten minutes with the door closed. When Priya left, she looked... intense. Not angry exactly, more like focused. Cold. Elena seemed shaken after. She told me I could leave early right after that.",
+          "emotion": "nervous",
+          "choices": [],
+          "end": true
+        }
+      }
+    }
+  },
+  "notifications": [
+    {
+      "id": "notif_welcome",
+      "trigger": "case_start",
+      "type": "message",
+      "title": "New Case Assigned",
+      "body": "Case #002: Digital Ghosts. Tech CEO Elena Vasquez found dead in her home office. Her phone has been sending messages for three days. Something doesn't add up.",
+      "icon": "case_file",
+      "unlocks": null
+    },
+    {
+      "id": "notif_ghost_messages",
+      "trigger": { "connection_made": "conn_001" },
+      "type": "message",
+      "title": "Breakthrough: Ghost Messages",
+      "body": "Someone used a scheduling app to send messages from Elena's phone after her death. These messages were designed to make it look like she was still alive. Who had the technical knowledge to do this?",
+      "icon": "ghost",
+      "unlocks": null
+    },
+    {
+      "id": "notif_priya_lied",
+      "trigger": { "connection_made": "conn_002" },
+      "type": "message",
+      "title": "Suspect Caught in a Lie",
+      "body": "Priya Sharma claimed she was at the office until 9 PM, but security footage shows her car leaving at 6:48 PM. Where did she really go?",
+      "icon": "warning",
+      "unlocks": null
+    },
+    {
+      "id": "notif_new_thread",
+      "trigger": { "clue_discovered": "clue_priya_technical_access" },
+      "type": "message",
+      "title": "New Messages Recovered",
+      "body": "A previously hidden message thread between Elena and Priya from the evening of March 18 has been recovered from the server.",
+      "icon": "messages",
+      "unlocks": "thread_004"
+    },
+    {
+      "id": "notif_accusation_ready",
+      "trigger": "all_required_connections",
+      "type": "system",
+      "title": "Ready to Accuse",
+      "body": "You have gathered enough evidence to identify the killer. Visit the Evidence Board to make your accusation.",
+      "icon": "accusation",
+      "unlocks": "accusation_phase"
+    },
+    {
+      "id": "notif_server_logs",
+      "trigger": { "clue_discovered": "clue_scheduling_app" },
+      "type": "message",
+      "title": "New Document Available",
+      "body": "NovaTech IT has provided server access logs from March 18. Someone accessed Elena's cloud accounts that evening.",
+      "icon": "document",
+      "unlocks": "doc_003"
+    }
+  ],
+  "accusation": {
+    "culprit": "suspect_priya",
+    "required_evidence": ["clue_priya_at_elena_house", "clue_priya_technical_access", "clue_priya_ousted"],
+    "min_evidence_count": 3,
+    "optional_evidence": ["clue_priya_lied_about_location", "clue_priya_knew_scheduling", "clue_priya_stayed_long", "clue_scheduling_app", "clue_priya_threat"],
+    "wrong_accusation_hint": "Consider who had the technical expertise to schedule messages, the opportunity to be at the crime scene, AND a powerful motive.",
+    "wrong_evidence_hint": "You need to prove three things: the suspect was at the scene, had the means to create the digital alibi, and had a motive worth killing for."
+  },
+  "resolution": {
+    "arrest_narrative": "Officers arrive at Priya Sharma's apartment as the morning fog rolls through Palo Alto. When confronted with the evidence — her GPS placing her at Elena's house during the time of death, the server logs showing she accessed Elena's accounts to craft the scheduled messages, and the board documents proving she was about to lose $12 million — Priya's composure finally cracks. 'She was going to erase me,' Priya whispers. 'Eight years of building something from nothing, and she wanted to hand it all to some new CTO for the acquirers. I went there to talk, to make her see reason. But she wouldn't listen. She never listened.' The handcuffs click shut as the first rays of sun hit the NovaTech logo on her laptop bag.",
+    "evidence_summary": "Priya Sharma, co-founder and CTO of NovaTech, killed Elena Vasquez in her home office on the evening of March 18th. Priya was being forced out of the company she co-founded, losing over $12 million in equity. She used her admin access to Elena's cloud accounts to study her messaging patterns, then after the murder, installed a scheduling app on Elena's phone to send automated messages — creating the illusion that Elena was alive well into the night. Security cameras, GPS data, and server logs all confirm Priya's presence at the scene and her role in the digital cover-up.",
+    "epilogue": "The NovaTech acquisition falls through in the wake of the scandal. Daniel Vasquez sells the house on Hillcrest Drive and moves back to San Francisco. Ryan Cole, who was about to lose his job, instead becomes the interim coordinator managing NovaTech's wind-down. He later enrolls in graduate school with the recommendation letter Elena wrote him. The 'ghost messages' from Elena's phone become a landmark case in digital forensics, cited in courtrooms for years to come. Sometimes the people who build the future are the ones most dangerous when it's taken from them.",
+    "next_case_teaser": {
+      "title": "Case #003: The Last Review",
+      "tagline": "A restaurant critic collapses mid-meal. The five-star rating hid a zero-star secret."
+    }
+  },
+  "hints": {
+    "clue_scheduled_msg_1": {
+      "nudge": "Look at the timestamps of Elena's later messages. Do they make sense given what you know?",
+      "push": "Elena texted Daniel at 21:45, but the coroner's report says she died between 19:30 and 20:30. How is that possible?",
+      "reveal": "The 21:45 message from Elena was sent after her death. Someone scheduled it in advance using an app on her phone."
+    },
+    "clue_priya_left_office_early": {
+      "nudge": "Check the security cameras carefully. Pay attention to the timestamps and what vehicles you see.",
+      "push": "The parking garage camera shows a car leaving NovaTech much earlier than its owner claims to have left.",
+      "reveal": "Priya's Tesla left the NovaTech garage at 18:48, but she told Elena she was still at the office at 20:00."
+    },
+    "clue_priya_technical_access": {
+      "nudge": "Who would have the skills AND the access to set up scheduled messages on someone else's phone?",
+      "push": "Check the NovaTech server logs. Someone accessed Elena's accounts before her death.",
+      "reveal": "Priya used her CTO admin credentials to access Elena's cloud account at 17:45, viewing her calendar, contacts, and drafts. She used this to craft convincing scheduled messages."
+    },
+    "conn_001": {
+      "nudge": "Two pieces of evidence explain HOW the ghost messages were sent. Can you connect them?",
+      "push": "The suspicious late messages and the phone's crime scene photo share a connection.",
+      "reveal": "Connect 'Suspicious Late Message' with 'Message Scheduling App' — the messages were pre-programmed to send automatically."
+    },
+    "conn_002": {
+      "nudge": "One suspect's story about their location doesn't match the physical evidence.",
+      "push": "Compare what Priya said about being at the office with what the cameras actually show.",
+      "reveal": "Connect 'Priya Left Office Early' with 'Priya Claims Office Presence' — the parking camera proves she lied about working late."
+    },
+    "conn_004": {
+      "nudge": "Why would someone kill Elena the night before a major board vote? Who had the most to lose?",
+      "push": "The board documents and the threatening text message are connected by one person's desperation.",
+      "reveal": "Connect 'Board Voted to Remove Priya' with 'Priya's Threat' — she was about to lose $12M+ in equity and threatened Elena the day before."
+    },
+    "conn_005": {
+      "nudge": "The ghost messages needed technical expertise to set up. Who had access to Elena's digital life?",
+      "push": "The scheduling app and the server access logs point to the same person.",
+      "reveal": "Connect 'Message Scheduling App' with 'Priya Accessed Elena's Accounts' — Priya had both the access and the skill to create the digital alibi."
+    },
+    "accusation_suspect": {
+      "nudge": "Who had the opportunity, the technical means, and a devastating motive?",
+      "push": "One suspect was at the crime scene, lied about their location, had admin access to Elena's accounts, and was about to lose millions.",
+      "reveal": "Priya Sharma had the opportunity (GPS places her at Elena's house), the means (CTO admin access to set up ghost messages), and the motive (losing $12M+ in equity)."
+    }
+  }
+}

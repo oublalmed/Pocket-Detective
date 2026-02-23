@@ -1,0 +1,1529 @@
+{
+  "meta": {
+    "case_id": "case_003",
+    "title": "The Last Encore",
+    "subtitle": "A jazz legend's final note",
+    "description": "Famous jazz musician Victor \"Sax\" Delacroix is found dead backstage at the historic Blue Moon Jazz Club after his farewell concert. His saxophone reed moistener held a deadly secret.",
+    "difficulty": "medium",
+    "order": 3,
+    "estimated_time_minutes": 35,
+    "stars_config": {
+      "three_star": { "max_hints": 0, "all_evidence": true },
+      "two_star": { "max_hints": 3 },
+      "one_star": { "max_hints": 999 }
+    },
+    "tags": ["murder", "music", "backstage", "poison"],
+    "language": "en",
+    "version": "1.0",
+    "author": "Studio"
+  },
+
+  "suspects": [
+    {
+      "id": "suspect_camille",
+      "name": "Camille Laurent",
+      "age": 34,
+      "occupation": "Club Manager",
+      "relationship_to_victim": "Protege and manager of the Blue Moon Jazz Club",
+      "bio": "Camille started as a bartender at the Blue Moon when she was 22. Victor saw potential in her and mentored her into the manager role. She considers the club her life's work, but recently discovered Victor was planning to sell it to a hotel chain.",
+      "portraits": {
+        "calm": "camille_calm.png",
+        "nervous": "camille_nervous.png",
+        "angry": "camille_angry.png",
+        "defensive": "camille_defensive.png",
+        "broken": "camille_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 504 555 0147",
+        "email": "camille@bluemoonjazz.com"
+      },
+      "is_culprit": false
+    },
+    {
+      "id": "suspect_theo",
+      "name": "Theo Barnes",
+      "age": 48,
+      "occupation": "Musician / Former Pharmacist",
+      "relationship_to_victim": "Rival musician and former colleague",
+      "bio": "Theo was once a rising star in the New Orleans jazz scene until Victor publicly humiliated him at a festival 15 years ago, calling his playing 'soulless imitation.' Theo's career never recovered. He left music for years and worked as a pharmacy technician before recently returning to the scene. Victor had invited him to play at the farewell concert as a supposed gesture of reconciliation.",
+      "portraits": {
+        "calm": "theo_calm.png",
+        "nervous": "theo_nervous.png",
+        "angry": "theo_angry.png",
+        "defensive": "theo_defensive.png",
+        "broken": "theo_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 504 555 0293",
+        "email": "theo.barnes@gmail.com"
+      },
+      "is_culprit": true
+    },
+    {
+      "id": "suspect_nadia",
+      "name": "Nadia Delacroix",
+      "age": 52,
+      "occupation": "Jazz Singer",
+      "relationship_to_victim": "Ex-wife",
+      "bio": "Nadia and Victor were the golden couple of New Orleans jazz for 18 years. Their divorce three years ago was bitter and public. Victor retained the royalties to all their collaborative albums, which Nadia claims she co-wrote. She attended the farewell concert as an audience member, publicly saying she wanted to 'honor what they once had.'",
+      "portraits": {
+        "calm": "nadia_calm.png",
+        "nervous": "nadia_nervous.png",
+        "angry": "nadia_angry.png",
+        "defensive": "nadia_defensive.png",
+        "broken": "nadia_broken.png"
+      },
+      "contact_info": {
+        "phone": "+1 504 555 0381",
+        "email": "nadia.delacroix@music.com"
+      },
+      "is_culprit": false
+    }
+  ],
+
+  "victim": {
+    "id": "victim_victor",
+    "name": "Victor \"Sax\" Delacroix",
+    "age": 56,
+    "occupation": "Jazz Musician",
+    "bio": "Legendary saxophonist known worldwide for his soulful improvisations. Victor owned the Blue Moon Jazz Club and was the heart of the New Orleans jazz revival. Found dead in his dressing room backstage shortly after his farewell concert, slumped in his chair with his saxophone still in his lap.",
+    "portrait": "victor_portrait.png",
+    "contact_info": {
+      "phone": "+1 504 555 0100",
+      "email": "victor@bluemoonjazz.com"
+    }
+  },
+
+  "evidence": {
+    "messages": [
+      {
+        "thread_id": "thread_001",
+        "participants": ["victim_victor", "suspect_camille"],
+        "display_name": "Camille Laurent",
+        "preview": "We need to talk about the club...",
+        "unread": true,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_001",
+            "sender": "suspect_camille",
+            "text": "Victor, I heard a rumor that you're in talks with the Majestic Hotel Group. Please tell me it's not true.",
+            "timestamp": "2026-03-18T14:20:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_002",
+            "sender": "victim_victor",
+            "text": "Camille, the club is mine. I built it. I have the right to do what I want with it.",
+            "timestamp": "2026-03-18T14:25:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_003",
+            "sender": "suspect_camille",
+            "text": "But you PROMISED me I'd take over when you retired! I gave 12 years of my life to this place!",
+            "timestamp": "2026-03-18T14:27:00",
+            "clue_id": "clue_camille_motive",
+            "clue_highlight": "you PROMISED me I'd take over"
+          },
+          {
+            "id": "msg_004",
+            "sender": "victim_victor",
+            "text": "Plans change. The hotel group is offering $2.3 million. We'll talk after the farewell show.",
+            "timestamp": "2026-03-18T14:30:00",
+            "clue_id": "clue_club_sale_price",
+            "clue_highlight": "$2.3 million"
+          },
+          {
+            "id": "msg_005",
+            "sender": "suspect_camille",
+            "text": "After the show? Fine. But I'm not letting this go, Victor. That club is my HOME.",
+            "timestamp": "2026-03-18T14:33:00",
+            "clue_id": null
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_002",
+        "participants": ["victim_victor", "suspect_theo"],
+        "display_name": "Theo Barnes",
+        "preview": "Looking forward to the reunion...",
+        "unread": true,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_006",
+            "sender": "victim_victor",
+            "text": "Theo, I've been thinking. I said some terrible things at the Crescent City Festival. I'd like to make it right. Play at my farewell show?",
+            "timestamp": "2026-03-15T10:00:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_007",
+            "sender": "suspect_theo",
+            "text": "After 15 years, NOW you want to apologize? You destroyed my career, Victor.",
+            "timestamp": "2026-03-15T10:45:00",
+            "clue_id": "clue_theo_grudge",
+            "clue_highlight": "You destroyed my career"
+          },
+          {
+            "id": "msg_008",
+            "sender": "victim_victor",
+            "text": "I know. That's why I want you on that stage. Show everyone the musician I should have supported. Consider it my public apology.",
+            "timestamp": "2026-03-15T11:02:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_009",
+            "sender": "suspect_theo",
+            "text": "Fine. I'll play your farewell. But don't think one concert erases what you did to me. Some debts can't be repaid.",
+            "timestamp": "2026-03-15T11:30:00",
+            "clue_id": "clue_theo_threat",
+            "clue_highlight": "Some debts can't be repaid"
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_003",
+        "participants": ["victim_victor", "suspect_nadia"],
+        "display_name": "Nadia Delacroix",
+        "preview": "About the royalties...",
+        "unread": false,
+        "unlock_condition": null,
+        "messages": [
+          {
+            "id": "msg_010",
+            "sender": "suspect_nadia",
+            "text": "Victor, my lawyer says I have a strong case for the royalties. Those songs were OURS, not just yours.",
+            "timestamp": "2026-03-17T09:15:00",
+            "clue_id": "clue_royalty_dispute",
+            "clue_highlight": "Those songs were OURS"
+          },
+          {
+            "id": "msg_011",
+            "sender": "victim_victor",
+            "text": "Take me to court then, Nadia. The contracts are clear. I hold the publishing rights.",
+            "timestamp": "2026-03-17T09:20:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_012",
+            "sender": "suspect_nadia",
+            "text": "You're unbelievable. I'll be at your farewell concert. Not for you, but for the music we made together. The audience deserves that much.",
+            "timestamp": "2026-03-17T09:30:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_013",
+            "sender": "victim_victor",
+            "text": "You're welcome to attend. VIP section, front row. For old times.",
+            "timestamp": "2026-03-17T09:35:00",
+            "clue_id": "clue_nadia_vip",
+            "clue_highlight": "VIP section, front row"
+          }
+        ]
+      },
+      {
+        "thread_id": "thread_004",
+        "participants": ["suspect_theo", "unknown"],
+        "display_name": "Unknown Number",
+        "preview": "Did you get what I asked for?",
+        "unread": true,
+        "unlock_condition": "clue_theo_pharmacy",
+        "messages": [
+          {
+            "id": "msg_014",
+            "sender": "suspect_theo",
+            "text": "Did you get what I asked for? The tetrodotoxin compound.",
+            "timestamp": "2026-03-19T16:00:00",
+            "clue_id": "clue_theo_poison_purchase",
+            "clue_highlight": "tetrodotoxin compound"
+          },
+          {
+            "id": "msg_015",
+            "sender": "unknown",
+            "text": "Yeah. It's in the usual spot. Be careful with that stuff, man. This isn't aspirin.",
+            "timestamp": "2026-03-19T16:15:00",
+            "clue_id": null
+          },
+          {
+            "id": "msg_016",
+            "sender": "suspect_theo",
+            "text": "I know exactly what it is. I worked with compounds like this for years. Don't worry.",
+            "timestamp": "2026-03-19T16:18:00",
+            "clue_id": null
+          }
+        ]
+      }
+    ],
+
+    "photos": [
+      {
+        "id": "photo_001",
+        "filename": "backstage_dressing_room.png",
+        "caption": "Victor's dressing room backstage — crime scene photo",
+        "timestamp": "2026-03-20T23:45:00",
+        "location": "Blue Moon Jazz Club, Backstage",
+        "unlock_condition": null,
+        "hotspots": [
+          {
+            "id": "hotspot_001",
+            "x_percent": 40,
+            "y_percent": 55,
+            "width_percent": 12,
+            "height_percent": 15,
+            "clue_id": "clue_reed_cup",
+            "description": "A small cup of water on the vanity table — used by saxophonists to moisten reeds. Crime lab flagged this for testing."
+          },
+          {
+            "id": "hotspot_002",
+            "x_percent": 72,
+            "y_percent": 20,
+            "width_percent": 10,
+            "height_percent": 12,
+            "clue_id": "clue_open_window",
+            "description": "The dressing room window is slightly open, providing potential alternate entry from the back alley."
+          }
+        ]
+      },
+      {
+        "id": "photo_002",
+        "filename": "security_cam_hallway.png",
+        "caption": "Security camera — backstage hallway, 22:15",
+        "timestamp": "2026-03-20T22:15:00",
+        "location": "Blue Moon Jazz Club, Backstage Hallway",
+        "unlock_condition": null,
+        "hotspots": [
+          {
+            "id": "hotspot_003",
+            "x_percent": 50,
+            "y_percent": 40,
+            "width_percent": 20,
+            "height_percent": 35,
+            "clue_id": "clue_theo_backstage_seen",
+            "description": "A figure matching Theo Barnes' build and clothing is seen in the backstage hallway at 22:15, during the intermission — 30 minutes before Victor's final set."
+          }
+        ]
+      },
+      {
+        "id": "photo_003",
+        "filename": "concert_crowd.png",
+        "caption": "Photo from audience during the concert — 22:40",
+        "timestamp": "2026-03-20T22:40:00",
+        "location": "Blue Moon Jazz Club, Main Hall",
+        "unlock_condition": null,
+        "hotspots": [
+          {
+            "id": "hotspot_004",
+            "x_percent": 15,
+            "y_percent": 65,
+            "width_percent": 10,
+            "height_percent": 18,
+            "clue_id": "clue_nadia_in_crowd",
+            "description": "Nadia Delacroix is clearly visible in the VIP front row at 22:40, during Victor's final set. She's surrounded by other audience members."
+          },
+          {
+            "id": "hotspot_005",
+            "x_percent": 85,
+            "y_percent": 10,
+            "width_percent": 12,
+            "height_percent": 15,
+            "clue_id": "clue_camille_on_stage",
+            "description": "Camille Laurent is visible at the side of the stage, near the microphone stand — she was introducing acts and managing the show from there."
+          }
+        ]
+      },
+      {
+        "id": "photo_004",
+        "filename": "back_alley_camera.png",
+        "caption": "Security camera — back alley entrance, 22:10",
+        "timestamp": "2026-03-20T22:10:00",
+        "location": "Blue Moon Jazz Club, Back Alley",
+        "unlock_condition": "clue_open_window",
+        "hotspots": [
+          {
+            "id": "hotspot_006",
+            "x_percent": 35,
+            "y_percent": 45,
+            "width_percent": 18,
+            "height_percent": 30,
+            "clue_id": "clue_theo_alley_entry",
+            "description": "Theo Barnes is captured on the back alley camera at 22:10, entering through the service door. He told police he never left the green room."
+          }
+        ]
+      }
+    ],
+
+    "calls": [
+      {
+        "id": "call_001",
+        "caller": "suspect_camille",
+        "receiver": "victim_victor",
+        "timestamp": "2026-03-20T19:30:00",
+        "duration_seconds": 245,
+        "type": "incoming",
+        "transcript": [
+          { "speaker": "Camille", "text": "Victor, everything is set for tonight. Sound check is done, the VIP list is confirmed." },
+          { "speaker": "Victor", "text": "Good. And Theo? Did he show up for rehearsal?" },
+          { "speaker": "Camille", "text": "He's here. Arrived about an hour ago. Seemed... intense. He's been in the green room warming up." },
+          { "speaker": "Victor", "text": "Let him be. Tonight is about the music. Oh, and Camille — make sure nobody touches my reed cup backstage. I just set it up the way I like it.", "clue_id": "clue_reed_cup_setup" },
+          { "speaker": "Camille", "text": "Got it. Your dressing room is locked. Only you have the key... well, and the master key in my office." }
+        ],
+        "unlock_condition": null
+      },
+      {
+        "id": "call_002",
+        "caller": "suspect_nadia",
+        "receiver": "victim_victor",
+        "timestamp": "2026-03-20T20:00:00",
+        "duration_seconds": 120,
+        "type": "incoming",
+        "transcript": [
+          { "speaker": "Nadia", "text": "Victor, I'm outside the club. The bouncer won't let me in without a ticket." },
+          { "speaker": "Victor", "text": "I put you on the VIP list, Nadia. Tell them to check again." },
+          { "speaker": "Nadia", "text": "Fine. I just want you to know — I meant what I said. I'm here for the music. Not for you.", "clue_id": "clue_nadia_arrival_time" },
+          { "speaker": "Victor", "text": "I know. Enjoy the show." }
+        ],
+        "unlock_condition": null
+      },
+      {
+        "id": "call_003",
+        "caller": "suspect_theo",
+        "receiver": "unknown",
+        "timestamp": "2026-03-20T22:05:00",
+        "duration_seconds": 45,
+        "type": "outgoing",
+        "transcript": [
+          { "speaker": "Theo", "text": "It's done. I put it in the cup. He'll use it before the last set.", "clue_id": "clue_theo_confession_call" },
+          { "speaker": "Unknown", "text": "Are you sure about this? There's no going back." },
+          { "speaker": "Theo", "text": "He took 15 years of my life. The world will remember his last performance, not his next one." }
+        ],
+        "unlock_condition": "clue_theo_poison_purchase"
+      }
+    ],
+
+    "gps_logs": [
+      {
+        "id": "gps_001",
+        "device_owner": "suspect_theo",
+        "entries": [
+          { "timestamp": "2026-03-20T18:00:00", "location": "742 Decatur St", "label": "Theo's Apartment" },
+          { "timestamp": "2026-03-20T18:30:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club" },
+          { "timestamp": "2026-03-20T22:08:00", "location": "Blue Moon Back Alley", "label": "Back Alley Entrance", "clue_id": "clue_theo_gps_alley" },
+          { "timestamp": "2026-03-20T22:12:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Backstage" },
+          { "timestamp": "2026-03-20T22:20:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Green Room" },
+          { "timestamp": "2026-03-20T23:30:00", "location": "742 Decatur St", "label": "Theo's Apartment" }
+        ]
+      },
+      {
+        "id": "gps_002",
+        "device_owner": "suspect_nadia",
+        "entries": [
+          { "timestamp": "2026-03-20T19:00:00", "location": "88 Royal St", "label": "Nadia's Hotel" },
+          { "timestamp": "2026-03-20T19:55:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Front Entrance" },
+          { "timestamp": "2026-03-20T20:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Main Hall", "clue_id": "clue_nadia_in_hall" },
+          { "timestamp": "2026-03-20T22:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Main Hall" },
+          { "timestamp": "2026-03-20T23:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Main Hall" },
+          { "timestamp": "2026-03-20T23:45:00", "location": "88 Royal St", "label": "Nadia's Hotel" }
+        ]
+      },
+      {
+        "id": "gps_003",
+        "device_owner": "suspect_camille",
+        "entries": [
+          { "timestamp": "2026-03-20T16:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club" },
+          { "timestamp": "2026-03-20T18:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Stage Area" },
+          { "timestamp": "2026-03-20T20:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Stage Area" },
+          { "timestamp": "2026-03-20T22:00:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Stage Area", "clue_id": "clue_camille_stage_gps" },
+          { "timestamp": "2026-03-20T22:30:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Stage Area" },
+          { "timestamp": "2026-03-20T23:50:00", "location": "215 Bourbon St", "label": "Blue Moon Jazz Club — Office" }
+        ]
+      }
+    ],
+
+    "documents": [
+      {
+        "id": "doc_001",
+        "title": "Toxicology Report — Victor Delacroix",
+        "type": "pdf_preview",
+        "filename": "toxicology_report.png",
+        "content_summary": "Cause of death: cardiac arrest induced by tetrodotoxin poisoning. The toxin was found in concentrated levels in the reed moistening cup recovered from the victim's dressing room. Tetrodotoxin is a potent neurotoxin found in pufferfish, typically requiring specialized knowledge to extract and handle. Estimated time of ingestion: between 22:15 and 22:30, consistent with the intermission period when the victim returned to his dressing room to prepare for his final set. Death occurred approximately 30-45 minutes after exposure.",
+        "unlock_condition": null,
+        "clue_id": "clue_poison_type"
+      },
+      {
+        "id": "doc_002",
+        "title": "Blue Moon Jazz Club — Sale Agreement Draft",
+        "type": "pdf_preview",
+        "filename": "club_sale_agreement.png",
+        "content_summary": "Draft agreement between Victor Delacroix (Seller) and Majestic Hotel Group (Buyer) for the sale of the Blue Moon Jazz Club property and brand. Purchase price: $2,300,000. Key clause: 'The Seller's farewell concert on March 20th shall serve as the symbolic final event before transfer of ownership.' The agreement was unsigned at the time of Victor's death. A handwritten note in the margin reads: 'Camille doesn't know yet — tell her after the show.'",
+        "unlock_condition": "clue_camille_motive",
+        "clue_id": "clue_sale_agreement"
+      },
+      {
+        "id": "doc_003",
+        "title": "Theo Barnes — Employment Record, Crescent City Pharmacy",
+        "type": "pdf_preview",
+        "filename": "theo_employment_record.png",
+        "content_summary": "Employment record for Theodore R. Barnes at Crescent City Pharmacy & Compounding Lab, 2014-2022. Position: Pharmacy Technician, later Compounding Specialist. Specialization: preparation of custom pharmaceutical compounds. Supervisor notes: 'Theo has exceptional knowledge of toxicological compounds and their interactions. His chemistry background makes him invaluable for our compounding work.' Termination reason: Voluntary resignation, cited 'return to music career.'",
+        "unlock_condition": null,
+        "clue_id": "clue_theo_pharmacy"
+      }
+    ]
+  },
+
+  "clues": [
+    {
+      "id": "clue_camille_motive",
+      "title": "Camille's Broken Promise",
+      "description": "Victor promised Camille she would take over the Blue Moon when he retired, but he was secretly planning to sell it for $2.3 million instead.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "money"
+    },
+    {
+      "id": "clue_club_sale_price",
+      "title": "The $2.3 Million Deal",
+      "description": "Victor was negotiating a $2.3 million sale of the Blue Moon Jazz Club to the Majestic Hotel Group.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "money"
+    },
+    {
+      "id": "clue_theo_grudge",
+      "title": "Theo's 15-Year Grudge",
+      "description": "Theo Barnes blamed Victor for destroying his music career 15 years ago after a public humiliation at the Crescent City Festival.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "key",
+      "icon": "anger"
+    },
+    {
+      "id": "clue_theo_threat",
+      "title": "Theo's Veiled Threat",
+      "description": "In his messages to Victor, Theo wrote: 'Some debts can't be repaid' — a thinly veiled threat disguised as bitterness.",
+      "type": "threat",
+      "source": "messages",
+      "importance": "key",
+      "icon": "warning"
+    },
+    {
+      "id": "clue_royalty_dispute",
+      "title": "Royalty Dispute",
+      "description": "Nadia was in a legal battle with Victor over royalties to their collaborative albums. She claimed she co-wrote songs that Victor held sole publishing rights to.",
+      "type": "motive",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "money"
+    },
+    {
+      "id": "clue_nadia_vip",
+      "title": "Nadia's VIP Seat",
+      "description": "Victor personally arranged for Nadia to sit in the VIP front row — she was in the audience, not backstage.",
+      "type": "alibi",
+      "source": "messages",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_theo_poison_purchase",
+      "title": "Theo's Poison Purchase",
+      "description": "Theo messaged an unknown contact asking for 'the tetrodotoxin compound' — the same poison found in Victor's reed cup.",
+      "type": "evidence",
+      "source": "messages",
+      "importance": "key",
+      "icon": "poison"
+    },
+    {
+      "id": "clue_reed_cup",
+      "title": "The Poisoned Reed Cup",
+      "description": "A cup of water used by Victor to moisten his saxophone reeds was found on his dressing room vanity. It was flagged by the crime lab as the delivery method for the poison.",
+      "type": "weapon",
+      "source": "photos",
+      "importance": "key",
+      "icon": "evidence"
+    },
+    {
+      "id": "clue_open_window",
+      "title": "Open Dressing Room Window",
+      "description": "The window in Victor's dressing room was slightly open, providing potential alternate access from the back alley — bypassing the main backstage hallway.",
+      "type": "access",
+      "source": "photos",
+      "importance": "supporting",
+      "icon": "door"
+    },
+    {
+      "id": "clue_theo_backstage_seen",
+      "title": "Theo in Backstage Hallway",
+      "description": "Security camera footage shows a figure matching Theo Barnes in the backstage hallway at 22:15, during the intermission. Theo claimed he never left the green room.",
+      "type": "contradiction",
+      "source": "photos",
+      "importance": "key",
+      "icon": "camera"
+    },
+    {
+      "id": "clue_nadia_in_crowd",
+      "title": "Nadia in the Audience",
+      "description": "A concert photo clearly shows Nadia Delacroix in the VIP front row at 22:40, during Victor's final set. She was surrounded by fans.",
+      "type": "alibi",
+      "source": "photos",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_camille_on_stage",
+      "title": "Camille on Stage",
+      "description": "Concert photo shows Camille Laurent at the side of the stage at 22:40. She was visible to the audience, managing the show and introducing acts.",
+      "type": "alibi",
+      "source": "photos",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_theo_alley_entry",
+      "title": "Theo's Secret Entry",
+      "description": "Back alley security camera captured Theo Barnes entering through the service door at 22:10 — he told police he never left the green room during the show.",
+      "type": "contradiction",
+      "source": "photos",
+      "importance": "key",
+      "icon": "camera"
+    },
+    {
+      "id": "clue_reed_cup_setup",
+      "title": "Victor's Reed Cup Ritual",
+      "description": "Victor told Camille on the phone to make sure nobody touched his reed cup backstage, confirming it was already prepared before the concert. Someone tampered with it between setup and the intermission.",
+      "type": "timeline",
+      "source": "calls",
+      "importance": "key",
+      "icon": "clock"
+    },
+    {
+      "id": "clue_nadia_arrival_time",
+      "title": "Nadia Arrived at Front Door",
+      "description": "Nadia called Victor at 20:00 from the front entrance of the club, confirming she entered through the main door — not backstage.",
+      "type": "alibi",
+      "source": "calls",
+      "importance": "supporting",
+      "icon": "phone"
+    },
+    {
+      "id": "clue_theo_confession_call",
+      "title": "Theo's Incriminating Call",
+      "description": "At 22:05, Theo called an unknown number and said: 'It's done. I put it in the cup. He'll use it before the last set.' A near-confession captured in the call log.",
+      "type": "confession",
+      "source": "calls",
+      "importance": "key",
+      "icon": "phone"
+    },
+    {
+      "id": "clue_theo_gps_alley",
+      "title": "Theo's GPS — Back Alley",
+      "description": "Theo's phone GPS places him at the back alley entrance at 22:08, corroborating the security camera footage of his secret entry.",
+      "type": "presence",
+      "source": "gps",
+      "importance": "key",
+      "icon": "location"
+    },
+    {
+      "id": "clue_nadia_in_hall",
+      "title": "Nadia's GPS — Main Hall All Night",
+      "description": "Nadia's GPS shows she was in the main hall from 20:00 until 23:00 — she never went backstage.",
+      "type": "alibi",
+      "source": "gps",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_camille_stage_gps",
+      "title": "Camille's GPS — Stage Area",
+      "description": "Camille's GPS consistently places her in the stage area from 18:00 through the entire concert. She never went to the backstage dressing rooms during the critical window.",
+      "type": "alibi",
+      "source": "gps",
+      "importance": "supporting",
+      "icon": "location"
+    },
+    {
+      "id": "clue_poison_type",
+      "title": "Tetrodotoxin Poisoning",
+      "description": "The toxicology report confirms Victor died from tetrodotoxin, a rare neurotoxin found in pufferfish. It requires specialized knowledge to extract and handle — not something an average person would know about.",
+      "type": "cause_of_death",
+      "source": "documents",
+      "importance": "key",
+      "icon": "poison"
+    },
+    {
+      "id": "clue_sale_agreement",
+      "title": "Unsigned Sale Agreement",
+      "description": "The club sale agreement was unsigned. A margin note in Victor's handwriting reads: 'Camille doesn't know yet — tell her after the show.' Victor's death halts the sale.",
+      "type": "document",
+      "source": "documents",
+      "importance": "supporting",
+      "icon": "document"
+    },
+    {
+      "id": "clue_theo_pharmacy",
+      "title": "Theo's Pharmacy Background",
+      "description": "Employment records show Theo worked as a compounding specialist at Crescent City Pharmacy for 8 years, with noted expertise in toxicological compounds. He had the knowledge to handle tetrodotoxin.",
+      "type": "background",
+      "source": "documents",
+      "importance": "key",
+      "icon": "document"
+    },
+    {
+      "id": "clue_theo_lied_location",
+      "title": "Theo Lied About His Location",
+      "description": "Theo told police he stayed in the green room the entire night, but security footage and GPS prove he went to the back alley and backstage hallway during the intermission.",
+      "type": "contradiction",
+      "source": "interrogation",
+      "importance": "key",
+      "icon": "lie"
+    }
+  ],
+
+  "connections": [
+    {
+      "id": "conn_001",
+      "from": "clue_poison_type",
+      "to": "clue_theo_pharmacy",
+      "description": "The poison that killed Victor is tetrodotoxin — and Theo Barnes spent 8 years as a pharmacy compounding specialist with expertise in exactly this type of toxin.",
+      "type": "expertise_match",
+      "required": true,
+      "unlocks": ["notif_pharmacy_link"]
+    },
+    {
+      "id": "conn_002",
+      "from": "clue_theo_backstage_seen",
+      "to": "clue_theo_alley_entry",
+      "description": "Security cameras from BOTH the back alley and the backstage hallway confirm Theo was moving through the restricted area during the intermission — despite claiming he never left the green room.",
+      "type": "confirmation",
+      "required": true,
+      "unlocks": []
+    },
+    {
+      "id": "conn_003",
+      "from": "clue_reed_cup",
+      "to": "clue_reed_cup_setup",
+      "description": "Victor set up his reed cup before the concert and told staff not to touch it. Someone accessed the dressing room during the show and poisoned the cup before Victor returned at intermission.",
+      "type": "method",
+      "required": true,
+      "unlocks": ["notif_method_clear"]
+    },
+    {
+      "id": "conn_004",
+      "from": "clue_theo_grudge",
+      "to": "clue_theo_threat",
+      "description": "Theo harbored a 15-year grudge against Victor for destroying his career, and his message — 'Some debts can't be repaid' — suggests he planned retribution, not reconciliation.",
+      "type": "motive_established",
+      "required": true,
+      "unlocks": ["interrogation_theo_pressure"]
+    },
+    {
+      "id": "conn_005",
+      "from": "clue_camille_on_stage",
+      "to": "clue_camille_stage_gps",
+      "description": "Both photographic evidence and GPS data confirm Camille was on or near the stage for the entire concert. She could not have gone backstage to poison the reed cup.",
+      "type": "alibi_confirmed",
+      "required": false,
+      "unlocks": []
+    },
+    {
+      "id": "conn_006",
+      "from": "clue_nadia_in_crowd",
+      "to": "clue_nadia_in_hall",
+      "description": "Nadia was photographed in the VIP front row and her GPS confirms she stayed in the main hall all evening. She had no access to the backstage dressing room.",
+      "type": "alibi_confirmed",
+      "required": false,
+      "unlocks": []
+    },
+    {
+      "id": "conn_007",
+      "from": "clue_theo_gps_alley",
+      "to": "clue_open_window",
+      "description": "Theo's GPS places him at the back alley at 22:08, and the dressing room window was open to the alley. He could have accessed Victor's dressing room through the window without using the main backstage corridor.",
+      "type": "access_route",
+      "required": false,
+      "unlocks": []
+    },
+    {
+      "id": "conn_008",
+      "from": "clue_theo_poison_purchase",
+      "to": "clue_theo_confession_call",
+      "description": "Theo first obtained the tetrodotoxin from a contact, then called the same contact at 22:05 saying 'It's done. I put it in the cup.' The poison purchase and delivery confirmation form a complete chain.",
+      "type": "evidence_chain",
+      "required": true,
+      "unlocks": ["notif_accusation_ready"]
+    }
+  ],
+
+  "interrogations": {
+    "suspect_camille": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Camille",
+          "text": "I can't believe he's gone. The Blue Moon was his whole life... and mine. What do you need from me?",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you during the concert?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_whereabouts"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about the club sale.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_club_sale"
+            },
+            {
+              "id": "q3",
+              "text": "Who had access to Victor's dressing room?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_access"
+            }
+          ]
+        },
+        "camille_whereabouts": {
+          "speaker": "Camille",
+          "text": "I was on stage the entire night. I introduced every act, managed the sound cues, handled the VIP guests. Hundreds of people saw me. I didn't leave the stage area once after 20:00.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "The concert photo confirms you were on stage at 22:40.",
+              "type": "evidence",
+              "requires_evidence": "clue_camille_on_stage",
+              "next": "camille_alibi_confirmed"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS also shows you stayed in the stage area.",
+              "type": "evidence",
+              "requires_evidence": "clue_camille_stage_gps",
+              "next": "camille_alibi_confirmed"
+            }
+          ]
+        },
+        "camille_alibi_confirmed": {
+          "speaker": "Camille",
+          "text": "Of course it does. I was running the most important event this club has ever had. I had no time to go anywhere else. Every second was accounted for.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q1c",
+              "text": "Let's talk about the club sale then.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_club_sale"
+            }
+          ]
+        },
+        "camille_club_sale": {
+          "speaker": "Camille",
+          "text": "What about it? Victor was... considering options. It's his club, his decision.",
+          "emotion": "nervous",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "You messaged Victor saying he PROMISED you'd take over.",
+              "type": "evidence",
+              "requires_evidence": "clue_camille_motive",
+              "next": "camille_motive_pressed"
+            },
+            {
+              "id": "q2b",
+              "text": "Did you know about the $2.3 million offer?",
+              "type": "evidence",
+              "requires_evidence": "clue_club_sale_price",
+              "next": "camille_sale_price"
+            }
+          ]
+        },
+        "camille_motive_pressed": {
+          "speaker": "Camille",
+          "text": "Yes, I was angry! Wouldn't you be? I gave this place twelve years. He promised it would be mine. Then he goes behind my back to sell to some hotel chain? But I didn't kill him! I was on stage in front of 300 people!",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q2a_i",
+              "text": "With Victor dead, what happens to the sale?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "camille_sale_future"
+            }
+          ]
+        },
+        "camille_sale_price": {
+          "speaker": "Camille",
+          "text": "$2.3 million? I... I knew it was serious, but I didn't know the number. God. He was really going to do it.",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q2b_i",
+              "text": "The sale agreement has a note: 'Camille doesn't know yet.'",
+              "type": "evidence",
+              "requires_evidence": "clue_sale_agreement",
+              "next": "camille_margin_note"
+            }
+          ]
+        },
+        "camille_margin_note": {
+          "speaker": "Camille",
+          "text": "He was going to tell me after the show... The farewell concert wasn't just his farewell to jazz. It was his farewell to me and this club. I can't believe he'd do that.",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        },
+        "camille_sale_future": {
+          "speaker": "Camille",
+          "text": "The agreement was unsigned. Victor's estate... I suppose the club stays as is, for now. Look, I know what you're thinking, and you're wrong. I wanted to save the club, not destroy the man who built it.",
+          "emotion": "defensive",
+          "choices": [],
+          "end": true
+        },
+        "camille_access": {
+          "speaker": "Camille",
+          "text": "Victor had his own key to the dressing room. There's also a master key in my office, but my office was locked during the concert. Other than that... the window. The dressing room has a window that faces the back alley. I've told Victor a hundred times to keep it closed.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3a",
+              "text": "Could someone have entered through that window?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_window"
+            },
+            {
+              "id": "q3b",
+              "text": "Who else was backstage that night?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "camille_backstage_people"
+            }
+          ]
+        },
+        "camille_window": {
+          "speaker": "Camille",
+          "text": "Easily. The window is at ground level in the alley. Anyone who knew about it could get in without being seen from the main hallway. The alley camera might have caught something though.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        },
+        "camille_backstage_people": {
+          "speaker": "Camille",
+          "text": "Victor, obviously. The sound tech was in the booth, not backstage. And Theo Barnes was in the green room — that's a separate room from Victor's private dressing room. During intermission, people move around, but only Victor went to his own dressing room.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3b_i",
+              "text": "Security footage shows Theo in the backstage hallway at 22:15.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_backstage_seen",
+              "next": "camille_theo_hallway"
+            }
+          ]
+        },
+        "camille_theo_hallway": {
+          "speaker": "Camille",
+          "text": "What? Theo said he stayed in the green room. Why would he be in the backstage hallway? The green room is in the opposite direction. The only thing down that hallway is... Victor's dressing room.",
+          "emotion": "nervous",
+          "choices": [],
+          "end": true
+        }
+      }
+    },
+    "suspect_theo": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Theo",
+          "text": "Terrible thing, what happened to Victor. We had our differences, but nobody deserves that. I was just honored to play at his farewell.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you during the intermission?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_whereabouts"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about your history with Victor.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_history"
+            },
+            {
+              "id": "q3",
+              "text": "What did you do before returning to music?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_career"
+            }
+          ]
+        },
+        "theo_whereabouts": {
+          "speaker": "Theo",
+          "text": "I was in the green room the whole time. Warming up, going over my charts. I didn't leave that room until it was time for the second set. You can ask anyone.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "Security footage shows you in the backstage hallway at 22:15.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_backstage_seen",
+              "next": "theo_hallway_caught"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS puts you in the back alley at 22:08.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_gps_alley",
+              "next": "theo_gps_caught"
+            },
+            {
+              "id": "q1c",
+              "text": "The back alley camera recorded you entering the service door at 22:10.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_alley_entry",
+              "next": "theo_alley_caught"
+            }
+          ]
+        },
+        "theo_hallway_caught": {
+          "speaker": "Theo",
+          "text": "That... I might have stepped out for a moment. To stretch my legs. The green room was cramped. I walked down the hall and came right back.",
+          "emotion": "nervous",
+          "clue_revealed": "clue_theo_lied_location",
+          "choices": [
+            {
+              "id": "q1a_i",
+              "text": "The hallway leads directly to Victor's dressing room. Why were you there?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "theo_hallway_pressed"
+            }
+          ]
+        },
+        "theo_hallway_pressed": {
+          "speaker": "Theo",
+          "text": "I wasn't going to his dressing room! I just... I needed some air. The hallway has a door to the back. That's all.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q1a_ii",
+              "text": "But you went the opposite direction from any exit. Toward Victor's room.",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "theo_cornered"
+            }
+          ]
+        },
+        "theo_gps_caught": {
+          "speaker": "Theo",
+          "text": "GPS? That's... those things aren't accurate indoors. I was in the green room. Maybe the signal bounced or something.",
+          "emotion": "nervous",
+          "clue_revealed": "clue_theo_lied_location",
+          "choices": [
+            {
+              "id": "q1b_i",
+              "text": "The GPS specifically shows the back alley, not the green room. And the security camera confirms it.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_alley_entry",
+              "next": "theo_cornered"
+            }
+          ]
+        },
+        "theo_alley_caught": {
+          "speaker": "Theo",
+          "text": "I... went out for a smoke. Through the back. Is that a crime?",
+          "emotion": "defensive",
+          "clue_revealed": "clue_theo_lied_location",
+          "choices": [
+            {
+              "id": "q1c_i",
+              "text": "You said you never left the green room. Now you were in the alley. Which is it?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "theo_cornered"
+            }
+          ]
+        },
+        "theo_cornered": {
+          "speaker": "Theo",
+          "text": "Fine! I left the green room. I went outside. But I didn't go to Victor's dressing room. I had no reason to!",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q_pharmacy",
+              "text": "Let's talk about your time at the pharmacy.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_career"
+            },
+            {
+              "id": "q_poison",
+              "text": "Do you know what tetrodotoxin is?",
+              "type": "evidence",
+              "requires_evidence": "clue_poison_type",
+              "next": "theo_poison_question"
+            }
+          ]
+        },
+        "theo_history": {
+          "speaker": "Theo",
+          "text": "Ancient history. Victor said some things at a festival years ago. It hurt my career. But I moved on. That's why I accepted his invitation — to show I'm past it.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "Your messages say 'Some debts can't be repaid.' That doesn't sound like you moved on.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_threat",
+              "next": "theo_threat_pressed"
+            },
+            {
+              "id": "q2b",
+              "text": "You wrote that Victor 'destroyed your career.' That's a strong accusation.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_grudge",
+              "next": "theo_grudge_pressed"
+            }
+          ]
+        },
+        "theo_threat_pressed": {
+          "speaker": "Theo",
+          "text": "That was... a figure of speech. I meant that an apology couldn't undo the damage. I didn't mean I was going to DO anything. Come on.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q2a_i",
+              "text": "Where were you during the intermission?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_whereabouts"
+            }
+          ]
+        },
+        "theo_grudge_pressed": {
+          "speaker": "Theo",
+          "text": "He DID destroy it! After that festival, no one would book me. I went from headlining clubs to playing background music at restaurants. You think that doesn't leave a mark?",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q2b_i",
+              "text": "A mark deep enough to want revenge?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "theo_revenge_denied"
+            }
+          ]
+        },
+        "theo_revenge_denied": {
+          "speaker": "Theo",
+          "text": "I wanted to prove him wrong. On that stage. That's my revenge — showing everyone I'm the musician he said I wasn't. Not... not whatever you're implying.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q2b_ii",
+              "text": "Let's discuss your pharmacy background.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "theo_career"
+            }
+          ]
+        },
+        "theo_career": {
+          "speaker": "Theo",
+          "text": "When my music career tanked, I went back to school. Chemistry. Got a job at a pharmacy. Compounding medications. It was honest work while I rebuilt my life.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3a",
+              "text": "Your employment record says you specialized in toxicological compounds.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_pharmacy",
+              "next": "theo_pharmacy_pressed"
+            }
+          ]
+        },
+        "theo_pharmacy_pressed": {
+          "speaker": "Theo",
+          "text": "I worked in pharmaceutical compounding. Yes, I know about toxins — it's part of the job. Knowing about something and using it are two very different things.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q3a_i",
+              "text": "Victor was killed by tetrodotoxin. You have the expertise to handle it.",
+              "type": "evidence",
+              "requires_evidence": "clue_poison_type",
+              "next": "theo_poison_question"
+            }
+          ]
+        },
+        "theo_poison_question": {
+          "speaker": "Theo",
+          "text": "Tetrodotoxin? That's... that's a very specific toxin. Look, just because I know what it is doesn't mean I used it. A lot of people know about pufferfish toxin.",
+          "emotion": "nervous",
+          "choices": [
+            {
+              "id": "q_final_evidence",
+              "text": "We found messages where you asked someone to get you tetrodotoxin compound.",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_poison_purchase",
+              "next": "theo_purchase_confronted"
+            }
+          ]
+        },
+        "theo_purchase_confronted": {
+          "speaker": "Theo",
+          "text": "Where did you... That was for research! I was studying natural compounds for a paper I was writing. It has nothing to do with Victor!",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q_final_call",
+              "text": "At 22:05 you called someone and said: 'It's done. I put it in the cup.'",
+              "type": "evidence",
+              "requires_evidence": "clue_theo_confession_call",
+              "next": "theo_final_confrontation"
+            }
+          ]
+        },
+        "theo_final_confrontation": {
+          "speaker": "Theo",
+          "text": "...\n\nYou don't understand. You can't understand. He didn't just insult me on that stage 15 years ago. He killed who I was. Every note I played after that, I heard his voice: 'soulless imitation.' He took my music from me. He took my SOUL from me. And then he had the nerve to invite me to his farewell, like I should be grateful? Like one concert could fix 15 years of silence?\n\nSo yes. I put the poison in his reed cup. His precious ritual. He always moistened the reed right before his big finale. I wanted his last note to be his last breath. Poetic, don't you think?",
+          "emotion": "broken",
+          "choices": [],
+          "end": true
+        }
+      }
+    },
+    "suspect_nadia": {
+      "unlock_condition": null,
+      "dialogue_tree": {
+        "start": {
+          "speaker": "Nadia",
+          "text": "Victor is dead and you want to question me? We were divorced, not enemies. Despite everything, I loved his music. I always will.",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q1",
+              "text": "Where were you during the concert?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_whereabouts"
+            },
+            {
+              "id": "q2",
+              "text": "Tell me about the royalty dispute.",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_royalties"
+            },
+            {
+              "id": "q3",
+              "text": "Did you go backstage at any point?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_backstage"
+            }
+          ]
+        },
+        "nadia_whereabouts": {
+          "speaker": "Nadia",
+          "text": "I was in the VIP section. Front row, center. Victor arranged it himself. I watched the entire concert from that seat. The people around me — fans, journalists — they can all confirm it.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1a",
+              "text": "A concert photo shows you in the front row at 22:40.",
+              "type": "evidence",
+              "requires_evidence": "clue_nadia_in_crowd",
+              "next": "nadia_alibi_confirmed"
+            },
+            {
+              "id": "q1b",
+              "text": "Your GPS confirms you were in the main hall all night.",
+              "type": "evidence",
+              "requires_evidence": "clue_nadia_in_hall",
+              "next": "nadia_alibi_confirmed"
+            }
+          ]
+        },
+        "nadia_alibi_confirmed": {
+          "speaker": "Nadia",
+          "text": "Of course. I was there to hear him play, not to sneak around backstage. I wanted to hear his saxophone one last time. And I did. It was... beautiful. Even now, even after everything between us.",
+          "emotion": "broken",
+          "choices": [
+            {
+              "id": "q1c",
+              "text": "When did you arrive at the club?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_arrival"
+            }
+          ]
+        },
+        "nadia_arrival": {
+          "speaker": "Nadia",
+          "text": "Around 20:00. I called Victor because the bouncer didn't have my name right. He sorted it out. I went in through the front door, found my seat, and stayed there.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q1c_i",
+              "text": "The phone records confirm your call at 20:00 from the front entrance.",
+              "type": "evidence",
+              "requires_evidence": "clue_nadia_arrival_time",
+              "next": "nadia_arrival_confirmed"
+            }
+          ]
+        },
+        "nadia_arrival_confirmed": {
+          "speaker": "Nadia",
+          "text": "I'm not hiding anything. I came to hear music. That's all.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        },
+        "nadia_royalties": {
+          "speaker": "Nadia",
+          "text": "The royalties? Yes, we were in a legal dispute. Victor kept the publishing rights to songs I helped write. 'Midnight on Bourbon,' 'Crescent Moon Sonata' — I wrote the melodies for those. He took everything in the divorce.",
+          "emotion": "angry",
+          "choices": [
+            {
+              "id": "q2a",
+              "text": "That's a lot of money at stake. How much are we talking?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "nadia_royalty_amount"
+            },
+            {
+              "id": "q2b",
+              "text": "Your message says 'Those songs were OURS.' You felt strongly about this.",
+              "type": "evidence",
+              "requires_evidence": "clue_royalty_dispute",
+              "next": "nadia_royalty_emotion"
+            }
+          ]
+        },
+        "nadia_royalty_amount": {
+          "speaker": "Nadia",
+          "text": "The catalog generates about $80,000 a year. Over a career, that's significant. But I was fighting it in court, not in a back alley. I'm a singer, not a criminal.",
+          "emotion": "defensive",
+          "choices": [
+            {
+              "id": "q2a_i",
+              "text": "With Victor dead, what happens to the royalties?",
+              "type": "pressure",
+              "requires_evidence": null,
+              "next": "nadia_royalty_death"
+            }
+          ]
+        },
+        "nadia_royalty_death": {
+          "speaker": "Nadia",
+          "text": "They go to his estate. Which actually makes my legal case harder, not easier. A dead man gets more sympathy than a bitter ex-wife in court. His death hurts me financially, if anything.",
+          "emotion": "defensive",
+          "choices": [],
+          "end": true
+        },
+        "nadia_royalty_emotion": {
+          "speaker": "Nadia",
+          "text": "Of course I felt strongly! I spent 18 years creating music with that man. We wrote songs together in our kitchen at 3 AM. And then his lawyers said I was just a 'performer,' not a 'creator.' It's insulting. But insults don't make me a killer.",
+          "emotion": "angry",
+          "choices": [],
+          "end": true
+        },
+        "nadia_backstage": {
+          "speaker": "Nadia",
+          "text": "No. Absolutely not. I didn't even try. Victor and I weren't on those terms anymore. I came in through the front door, sat in my seat, and stayed there. The closest I got to backstage was the ladies' restroom near the bar.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3a",
+              "text": "Do you know who else might have gone backstage?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_others_backstage"
+            }
+          ]
+        },
+        "nadia_others_backstage": {
+          "speaker": "Nadia",
+          "text": "Camille runs the place, so she'd have access. And Theo Barnes was performing, so he'd be in the green room area. Other than that, Victor liked his privacy before a show. He'd lock his dressing room and do his preparation ritual alone — reeds, breathing exercises, the whole routine.",
+          "emotion": "calm",
+          "choices": [
+            {
+              "id": "q3a_i",
+              "text": "Did you know about Victor's reed cup ritual?",
+              "type": "open",
+              "requires_evidence": null,
+              "next": "nadia_reed_ritual"
+            }
+          ]
+        },
+        "nadia_reed_ritual": {
+          "speaker": "Nadia",
+          "text": "Everyone who knew Victor knew about it. He was superstitious. Same cup, same water temperature, same routine before every performance. He'd soak the reed during intermission and play the second set with it. It was sacred to him. Anyone close to him would know that.",
+          "emotion": "calm",
+          "choices": [],
+          "end": true
+        }
+      }
+    }
+  },
+
+  "notifications": [
+    {
+      "id": "notif_welcome",
+      "trigger": "case_start",
+      "type": "message",
+      "title": "New Case Assigned",
+      "body": "Case #003: The Last Encore. Jazz legend Victor \"Sax\" Delacroix found dead backstage at the Blue Moon Jazz Club after his farewell concert. Examine his phone and the crime scene evidence to find the killer.",
+      "icon": "case_file",
+      "unlocks": null
+    },
+    {
+      "id": "notif_poison_identified",
+      "trigger": { "clue_discovered": "clue_poison_type" },
+      "type": "message",
+      "title": "Toxicology Results",
+      "body": "The lab confirms tetrodotoxin poisoning via the reed moistening cup. This is no accident — someone with knowledge of toxins targeted Victor's pre-performance ritual.",
+      "icon": "poison",
+      "unlocks": null
+    },
+    {
+      "id": "notif_pharmacy_link",
+      "trigger": { "connection_made": "conn_001" },
+      "type": "message",
+      "title": "Critical Connection",
+      "body": "The poison matches Theo Barnes' area of expertise from his years as a pharmacy compounding specialist. He had the knowledge to procure and handle tetrodotoxin.",
+      "icon": "evidence",
+      "unlocks": null
+    },
+    {
+      "id": "notif_method_clear",
+      "trigger": { "connection_made": "conn_003" },
+      "type": "message",
+      "title": "Murder Method Established",
+      "body": "The reed cup was set up before the concert and poisoned during the show. Victor's own ritual was turned against him.",
+      "icon": "evidence",
+      "unlocks": null
+    },
+    {
+      "id": "notif_theo_messages",
+      "trigger": { "clue_discovered": "clue_theo_pharmacy" },
+      "type": "message",
+      "title": "New Messages Recovered",
+      "body": "Forensic analysis of Theo Barnes' phone has recovered deleted messages with an unknown contact about obtaining chemical compounds.",
+      "icon": "messages",
+      "unlocks": "thread_004"
+    },
+    {
+      "id": "notif_theo_call",
+      "trigger": { "clue_discovered": "clue_theo_poison_purchase" },
+      "type": "message",
+      "title": "Suspicious Call Log Found",
+      "body": "A call from Theo's phone at 22:05 on the night of the murder has been decrypted. The content is potentially incriminating.",
+      "icon": "phone",
+      "unlocks": null
+    },
+    {
+      "id": "interrogation_theo_pressure",
+      "trigger": { "connection_made": "conn_004" },
+      "type": "interrogation",
+      "title": "New Interrogation Angle",
+      "body": "Theo's grudge against Victor combined with his veiled threats gives you leverage. Press him on his true feelings about Victor's invitation.",
+      "icon": "interrogation",
+      "unlocks": null
+    },
+    {
+      "id": "notif_accusation_ready",
+      "trigger": "all_required_connections",
+      "type": "system",
+      "title": "Ready to Accuse",
+      "body": "You have connected enough evidence to identify Victor's killer. Visit the Evidence Board to make your accusation.",
+      "icon": "accusation",
+      "unlocks": "accusation_phase"
+    }
+  ],
+
+  "accusation": {
+    "culprit": "suspect_theo",
+    "required_evidence": ["clue_poison_type", "clue_theo_pharmacy", "clue_theo_backstage_seen"],
+    "min_evidence_count": 3,
+    "optional_evidence": ["clue_theo_poison_purchase", "clue_theo_confession_call", "clue_theo_alley_entry", "clue_theo_gps_alley", "clue_theo_grudge", "clue_theo_threat", "clue_theo_lied_location"],
+    "wrong_accusation_hint": "The killer needed specialized knowledge to use this particular poison. Consider who had both the expertise AND the opportunity to access Victor's dressing room.",
+    "wrong_evidence_hint": "You need to establish three things: the murder method, the killer's unique capability, and proof they were at the scene. Look at the toxicology report, employment records, and security footage."
+  },
+
+  "resolution": {
+    "arrest_narrative": "Detectives arrive at Theo Barnes' apartment on Decatur Street as the first notes of a trumpet echo from a nearby club on Bourbon Street. When they present the evidence — security footage placing him in the backstage hallway and back alley, his pharmaceutical background matching the rare poison, and the damning phone call at 22:05 — Theo doesn't run. He sits down at his kitchen table, picks up a saxophone mouthpiece, and turns it over in his hands. 'Fifteen years,' he says quietly. 'For fifteen years, every time I picked up my horn, I heard his voice telling me I was nothing. He didn't just insult me that night. He silenced me.' He places the mouthpiece on the table and holds out his wrists. 'His last encore. My last act. I suppose we're both finished now.'",
+    "evidence_summary": "Theo Barnes poisoned Victor Delacroix by placing tetrodotoxin — a rare neurotoxin — into the saxophone reed moistening cup in Victor's dressing room during the concert intermission. His 8 years as a pharmacy compounding specialist gave him the knowledge to procure and handle the toxin. Security cameras captured him in the back alley at 22:10 and the backstage hallway at 22:15, contradicting his claim that he never left the green room. Messages recovered from his phone show he obtained the tetrodotoxin from a former pharmacy contact, and a call at 22:05 — 'It's done. I put it in the cup' — serves as a near-confession. Victor moistened his reed during intermission as part of his ritual, ingested the poison, and collapsed backstage after his final performance. Theo's motive was a 15-year grudge over a public humiliation that destroyed his music career.",
+    "epilogue": "With Victor's death, the unsigned sale agreement with the Majestic Hotel Group became void. In his will, Victor left the Blue Moon Jazz Club to Camille Laurent — the protege he had secretly planned to disappoint. Camille renamed the main stage 'The Delacroix Stage' and established an annual jazz festival in Victor's memory, featuring young musicians who might otherwise be overlooked. Nadia Delacroix eventually won her royalty case against Victor's estate, and used the proceeds to fund a music scholarship. She performs 'Midnight on Bourbon' at every Blue Moon anniversary show, and nobody in the audience has dry eyes. Theo Barnes was sentenced to 25 years for first-degree murder. In prison, he was not allowed a saxophone. The silence, they say, is what finally broke him.",
+    "next_case_teaser": {
+      "title": "Case #004: Dead Drop",
+      "tagline": "A diplomat's encrypted phone is found in a hotel safe — but the diplomat was never checked in."
+    }
+  },
+
+  "hints": {
+    "clue_reed_cup": {
+      "nudge": "Take a close look at the crime scene photo. What objects on the vanity might a saxophonist use before performing?",
+      "push": "Saxophone players moisten their reeds in water before playing. Find the cup on the vanity table.",
+      "reveal": "The small cup of water on the vanity is Victor's reed moistening cup — the crime lab flagged it as the poison delivery method."
+    },
+    "clue_theo_backstage_seen": {
+      "nudge": "Check the security camera footage carefully. Who was in places they shouldn't have been?",
+      "push": "Look at the backstage hallway security image at 22:15. Does the figure match anyone you know?",
+      "reveal": "The security camera at 22:15 shows Theo Barnes in the backstage hallway during intermission — he claimed he never left the green room."
+    },
+    "clue_theo_pharmacy": {
+      "nudge": "One of the suspects has an unusual career history. Check the documents section.",
+      "push": "Theo's employment record reveals a past career that gave him very specific knowledge.",
+      "reveal": "Theo worked for 8 years as a compounding specialist at Crescent City Pharmacy, with noted expertise in toxicological compounds."
+    },
+    "clue_theo_poison_purchase": {
+      "nudge": "After discovering Theo's pharmacy background, new evidence may become available. Check the messages.",
+      "push": "Theo's recovered messages contain a conversation about obtaining a specific chemical compound.",
+      "reveal": "Theo messaged an unknown contact asking for 'the tetrodotoxin compound' — the same toxin that killed Victor."
+    },
+    "conn_001": {
+      "nudge": "The poison is rare and requires expertise. Does anyone have the background to handle it?",
+      "push": "Connect the toxicology report with Theo's employment history at the pharmacy.",
+      "reveal": "Connect 'Tetrodotoxin Poisoning' with 'Theo's Pharmacy Background' — he had the exact expertise needed to obtain and use this poison."
+    },
+    "conn_002": {
+      "nudge": "Multiple pieces of evidence place the same person where they shouldn't have been.",
+      "push": "Look at both security camera images — the hallway and the back alley. The same person appears in both.",
+      "reveal": "Connect 'Theo in Backstage Hallway' with 'Theo's Secret Entry' — both cameras prove he was moving through the backstage area despite claiming he stayed in the green room."
+    },
+    "conn_003": {
+      "nudge": "How was the poison delivered? Think about the victim's routine.",
+      "push": "Victor had a specific pre-performance ritual involving his reed cup. Someone knew about it.",
+      "reveal": "Connect 'The Poisoned Reed Cup' with 'Victor's Reed Cup Ritual' — the cup was set up before the show and tampered with during the performance."
+    },
+    "conn_004": {
+      "nudge": "Look at the emotional content of the messages between Victor and one of the suspects.",
+      "push": "Theo's messages contain both deep resentment and a veiled threat. Together, they reveal his true intentions.",
+      "reveal": "Connect 'Theo's 15-Year Grudge' with 'Theo's Veiled Threat' — his grudge and the ominous 'Some debts can't be repaid' establish a revenge motive."
+    },
+    "conn_008": {
+      "nudge": "Follow the chain of evidence in Theo's communications. One message leads to another.",
+      "push": "Theo's messages about obtaining the poison connect to a call he made the night of the murder.",
+      "reveal": "Connect 'Theo's Poison Purchase' with 'Theo's Incriminating Call' — he bought the tetrodotoxin and then confirmed 'It's done. I put it in the cup' at 22:05."
+    },
+    "accusation_suspect": {
+      "nudge": "Consider who had the knowledge, the access, and the motive to commit this murder.",
+      "push": "One suspect had pharmaceutical expertise, was caught lying about their location, and harbored a deep grudge.",
+      "reveal": "Theo Barnes had the expertise to handle tetrodotoxin (pharmacy background), the opportunity (security footage places him backstage), and the motive (15 years of destroyed career). He is the killer."
+    }
+  }
+}
